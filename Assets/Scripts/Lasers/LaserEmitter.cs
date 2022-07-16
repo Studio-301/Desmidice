@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LaserEmitter : MonoBehaviour
@@ -41,7 +42,7 @@ public class LaserEmitter : MonoBehaviour
         Vector3 origin = t.position;
         Vector3 dir = t.forward;
 
-        LaserBeam.AddNode(origin);
+        LaserBeam.AddNode(origin, null);
 
         //Solve beam
         bool forceStop = false;
@@ -51,8 +52,6 @@ public class LaserEmitter : MonoBehaviour
             {
                 var obj = info.collider.gameObject;
 
-
-                //Valid result - loop will continue
                 if (obj.TryGetComponent<LaserReciever>(out var reciever))
                 {
                     if (preview)
@@ -64,10 +63,15 @@ public class LaserEmitter : MonoBehaviour
                     forceStop = true;
 
                 //Params for next segment
-                origin = info.point;
-                dir = Vector3.Reflect(dir, info.normal);
+                if (reciever != null && reciever.Reflect)
+                {
+                    origin = info.point;
+                    dir = Vector3.Reflect(dir, info.normal);
+                }
+                else
+                    forceStop = true;
 
-                LaserBeam.AddNode(info.point);
+                LaserBeam.AddNode(info.point, reciever);
             }
             else
                 break;
@@ -117,10 +121,18 @@ public class LaserEmitter : MonoBehaviour
 
 #if UNITY_EDITOR
             var middle = a.Point + (b.Point - a.Point) / 2;
-            UnityEditor.Handles.Label(middle, $"{a.Strength}");
+            UnityEditor.Handles.Label(middle, $"{a.Strength} - {a.Reciever?.gameObject.name}");
 #endif
 
             Gizmos.DrawLine(a.Point, b.Point);
+        }
+
+        if(LaserBeam.Complete && points.Any())
+        {
+            var pos = points.Last().Point;
+#if UNITY_EDITOR
+            UnityEditor.Handles.Label(pos, $"COMPLEATED: {LaserBeam.TotalStrength}");
+#endif    
         }
     }
 }
