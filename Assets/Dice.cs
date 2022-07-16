@@ -78,7 +78,7 @@ public class Dice : MonoBehaviour
         style.normal.textColor = Color.black;
         UnityEditor.Handles.Label(pos, text, style);
         style.normal.textColor = Color.yellow;
-        UnityEditor.Handles.Label(pos+Vector3.up*0.001f, text, style);
+        UnityEditor.Handles.Label(pos+Vector3.up*0.003f, text, style);
 #endif
     }
 }
