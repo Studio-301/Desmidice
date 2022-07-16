@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 7ef17fc19ce44ee45aa2716451df377b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - diceMaterial: {fileID: 2100000, guid: df95499f5bdeae141b2587f94824fbe0, type: 2}
+  - meshRenderer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

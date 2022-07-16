@@ -444,14 +444,14 @@
     },
     "m_PreviewData": {
         "serializedMesh": {
-            "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
+            "m_SerializedMesh": "{\"mesh\":{\"fileID\":10210,\"guid\":\"0000000000000000e000000000000000\",\"type\":0}}",
             "m_Guid": ""
         },
-        "preventRotation": false
+        "preventRotation": true
     },
     "m_Path": "Sub Graphs",
     "m_GraphPrecision": 1,
-    "m_PreviewMode": 2,
+    "m_PreviewMode": 1,
     "m_OutputNode": {
         "m_Id": "0224b42d0bcb445da92117631f77e1f7"
     },
@@ -478,7 +478,7 @@
     },
     "m_Slots": [
         {
-            "m_Id": "258d422476454b32aec248c50c4c5098"
+            "m_Id": "2bc817f11e164baba9c2dc0d9faf0806"
         }
     ],
     "synonyms": [],
@@ -575,10 +575,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1016.0,
-            "y": 127.5,
-            "width": 0.0,
-            "height": 0.0
+            "x": -1016.0000610351563,
+            "y": 109.00003051757813,
+            "width": 117.0,
+            "height": 33.999969482421878
         }
     },
     "m_Slots": [
@@ -873,10 +873,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1016.0,
-            "y": -129.5,
-            "width": 0.0,
-            "height": 0.0
+            "x": -1016.0000610351563,
+            "y": -135.99998474121095,
+            "width": 98.0,
+            "height": 33.999977111816409
         }
     },
     "m_Slots": [
@@ -972,12 +972,12 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
-    "m_ObjectId": "258d422476454b32aec248c50c4c5098",
+    "m_ObjectId": "2bc817f11e164baba9c2dc0d9faf0806",
     "m_Id": 1,
-    "m_DisplayName": "Tex",
+    "m_DisplayName": "Out_Tex",
     "m_SlotType": 0,
     "m_Hidden": false,
-    "m_ShaderOutputName": "Tex",
+    "m_ShaderOutputName": "Out_Tex",
     "m_StageCapability": 2,
     "m_Value": {
         "x": 0.0,
