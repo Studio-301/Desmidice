@@ -55,14 +55,14 @@ public class Dice : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        DisplaySide(colliders.A, data.A);
-        DisplaySide(colliders.B, data.B);
-        DisplaySide(colliders.C, data.C);
-        DisplaySide(colliders.D, data.D);
-        DisplaySide(colliders.E, data.E);
-        DisplaySide(colliders.F, data.F);
+        DisplaySide(colliders.A, data.A, "A");
+        DisplaySide(colliders.B, data.B, "B");
+        DisplaySide(colliders.C, data.C, "C");
+        DisplaySide(colliders.D, data.D, "D");
+        DisplaySide(colliders.E, data.E, "E");
+        DisplaySide(colliders.F, data.F, "F");
     }
-    void DisplaySide(LaserReciever_Dice side, Sides data)
+    void DisplaySide(LaserReciever_Dice side, Sides data, string name)
     {
         if (side == null)
             return;
@@ -70,7 +70,7 @@ public class Dice : MonoBehaviour
 #if UNITY_EDITOR
         var style = new GUIStyle(UnityEditor.EditorStyles.boldLabel);
         style.normal.background = Texture2D.blackTexture;
-        var text = data.ToString().Replace("_", "");
+        var text = $"{name} - {data.ToString().Replace("_", "")}";
         var pos = side.transform.position;
 
         style.fontSize = 25;
