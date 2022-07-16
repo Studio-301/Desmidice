@@ -13,7 +13,7 @@ public class DiceVisual : MonoBehaviour
 
     void Awake()
     {
-        diceMaterialInstance = new Material(diceMaterial);
+        diceMaterialInstance = new Material(meshRenderer.material);
             
         meshRenderer.material = diceMaterialInstance;
     }
