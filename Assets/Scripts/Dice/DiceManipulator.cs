@@ -11,6 +11,7 @@ public class DiceManipulator : MonoBehaviour
 
     //Internals
     Manipulatable currentlyHeld;
+    Vector3 grabOffset = Vector3.zero;
 
     void Update()
     {
@@ -42,21 +43,28 @@ public class DiceManipulator : MonoBehaviour
                 {
                     //Can move it
                     currentlyHeld = manipulatable;
-                    currentlyHeld.SetColliderState(false);
+                    currentlyHeld.SetGrabState(true);
+
+                    Vector3? point = RaycastForGrid(false);
+
+                    if (point != null)
+                        grabOffset = currentlyHeld.transform.position - point.Value;
+                    else
+                        grabOffset = Vector3.zero;
                 }
             }
         }
         else
         {
             //Try to release
-            Vector3? point = RaycastForGrid();
+            Vector3? point = RaycastForGrid(true);
 
             if (point != null)
             {
-                Vector3 snappedPosition = Vector3Int.RoundToInt(point.Value);
+                Vector3 snappedPosition = Vector3Int.RoundToInt(point.Value + grabOffset);
 
                 currentlyHeld.SnapTo(snappedPosition);
-                currentlyHeld.SetColliderState(true);
+                currentlyHeld.SetGrabState(false);
                 currentlyHeld = null;
             }
         }
@@ -64,11 +72,18 @@ public class DiceManipulator : MonoBehaviour
 
     void OnRightMouseClick()
     {
-        Manipulatable manipulatable = RaycastForManipulatable();
-        if (manipulatable == null)
-            return;
+        if (currentlyHeld != null)
+        {
+            currentlyHeld.Rotate();
+        }
+        else
+        {
+            Manipulatable manipulatable = RaycastForManipulatable();
+            if (manipulatable == null)
+                return;
 
-        manipulatable.Rotate();
+            manipulatable.Rotate();
+        }
     }
 
     void OnMiddleMouseClick()
@@ -81,10 +96,10 @@ public class DiceManipulator : MonoBehaviour
         if (currentlyHeld == null)
             return;
 
-        Vector3? point = RaycastForGrid();
+        Vector3? point = RaycastForGrid(false);
 
         if (point != null)
-            currentlyHeld.MoveTo(point.Value);
+            currentlyHeld.MoveTo(point.Value + grabOffset);
     }
 
 
@@ -103,15 +118,22 @@ public class DiceManipulator : MonoBehaviour
         return null;
     }
 
-    Vector3? RaycastForGrid()
+    Vector3? RaycastForGrid(bool hasToBeActualGrid)
     {
         Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, float.PositiveInfinity, GridLayerMask))
         {
-            if (hit.transform.gameObject.TryGetComponent(out GameGrid gameGrid))
+            if (hasToBeActualGrid)
+            {
+                if (hit.transform.gameObject.TryGetComponent(out GameGrid gameGrid))
+                    return hit.point;
+            }
+            else
+            {
                 return hit.point;
+            }
         }
 
         return null;

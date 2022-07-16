@@ -3,9 +3,6 @@ using DG.Tweening;
 
 public class Manipulatable : MonoBehaviour
 {
-    [Header("References")]
-    public Collider Collider;
-
     [Header("Rotation")]
     public bool EnableRotation = true;
     public float RotationIncrement = 90f;
@@ -17,13 +14,29 @@ public class Manipulatable : MonoBehaviour
     public float MoveLength = 0.3f;
     public Ease MoveEase = Ease.OutBounce;
 
+    [Header("Grab")]
+    public float GroundY = 0.7f;
+    public float SkyY = 2.2f;
+    public float GrabLength = 0.3f;
+    public Ease GrabEase = Ease.OutBack;
+    public Ease ReleaseEase = Ease.OutBounce;
+
+    float currentRotation = 0f;
+
+    void Start()
+    {
+        currentRotation = transform.localEulerAngles.y;
+    }
+
     public void Rotate()
     {
         if (!EnableRotation)
             return;
 
-        transform.DOComplete();
-        transform.DOLocalRotate(new Vector3(0, transform.localEulerAngles.y + RotationIncrement, 0), RotationLength)
+        currentRotation += RotationIncrement;
+        currentRotation = Mathf.Repeat(currentRotation, 360f);
+
+        transform.DOLocalRotate(new Vector3(0, currentRotation, 0), RotationLength)
                  .SetEase(RotationEase);
     }
 
@@ -47,8 +60,17 @@ public class Manipulatable : MonoBehaviour
         transform.position = destination;
     }
 
-    public void SetColliderState(bool state)
+    public void SetGrabState(bool state)
     {
-        Collider.enabled = state;
+        //transform.DOComplete();
+
+        if (state)
+        {
+            transform.DOMoveY(SkyY, GrabLength).SetEase(GrabEase);
+        }
+        else
+        {
+            transform.DOMoveY(GroundY, GrabLength).SetEase(ReleaseEase);
+        }
     }
 }
