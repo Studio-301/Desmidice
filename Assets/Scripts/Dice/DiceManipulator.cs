@@ -10,7 +10,7 @@ public class DiceManipulator : MonoBehaviour
     public LayerMask GridLayerMask;
 
     //Internals
-    [SerializeField] Manipulatable currentlyHeld;
+    Manipulatable currentlyHeld;
 
     void Update()
     {
@@ -33,16 +33,14 @@ public class DiceManipulator : MonoBehaviour
         if (currentlyHeld == null)
         {
             //Try to grab some
-
             Manipulatable manipulatable = RaycastForManipulatable();
+
             if (manipulatable != null)
             {
                 //Got a cube
-
                 if (manipulatable.EnableMove)
                 {
                     //Can move it
-
                     currentlyHeld = manipulatable;
                     currentlyHeld.SetColliderState(false);
                 }
@@ -51,12 +49,12 @@ public class DiceManipulator : MonoBehaviour
         else
         {
             //Try to release
-
             Vector3? point = RaycastForGrid();
 
             if (point != null)
             {
                 Vector3 snappedPosition = Vector3Int.RoundToInt(point.Value);
+
                 currentlyHeld.SnapTo(snappedPosition);
                 currentlyHeld.SetColliderState(true);
                 currentlyHeld = null;
