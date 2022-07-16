@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6578578915652655928}
   - component: {fileID: 3227064098359392865}
   m_Layer: 7
-  m_Name: 3
+  m_Name: A
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3494751248129910635}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6578578915652655928
 BoxCollider:
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Number: 3
+  Number: 1
 --- !u!1 &1134892880535955372
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,9 +71,9 @@ GameObject:
   - component: {fileID: 9169616005463807791}
   - component: {fileID: 3293391883503418909}
   m_Layer: 7
-  m_Name: 6
+  m_Name: E
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -90,7 +90,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3494751248129910635}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9169616005463807791
 BoxCollider:
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Number: 6
+  Number: 5
 --- !u!1 &1419736618596088850
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,9 +130,9 @@ GameObject:
   - component: {fileID: 1419736618596088860}
   - component: {fileID: 6354092723364576996}
   m_Layer: 7
-  m_Name: 4
+  m_Name: D
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -149,7 +149,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3494751248129910635}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1419736618596088860
 BoxCollider:
@@ -186,8 +186,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419736618934984646}
-  - component: {fileID: 6117940257970170864}
+  - component: {fileID: 2607846352898478957}
   - component: {fileID: -6910754910597910197}
+  - component: {fileID: 6117940257970170864}
   m_Layer: 6
   m_Name: Dice
   m_TagString: Untagged
@@ -212,19 +213,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6117940257970170864
-BoxCollider:
+--- !u!114 &2607846352898478957
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419736618934984647}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0bbea31f306984db8646bb047fa7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visuals: {fileID: 173272564823329511}
+  data:
+    A: 0
+    B: 0
+    C: 0
+    D: 0
+    E: 0
+    F: 0
+  colliders:
+    A: {fileID: 3227064098359392865}
+    B: {fileID: 579179409814800993}
+    C: {fileID: 5721835091867281789}
+    D: {fileID: 6354092723364576996}
+    E: {fileID: 3293391883503418909}
+    F: {fileID: 6698258907706401705}
 --- !u!114 &-6910754910597910197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +265,19 @@ MonoBehaviour:
   GrabLength: 0.3
   GrabEase: 27
   ReleaseEase: 30
+--- !u!65 &6117940257970170864
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419736618934984647}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3247359420838739633
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,9 +290,9 @@ GameObject:
   - component: {fileID: 9112515450886764556}
   - component: {fileID: 579179409814800993}
   m_Layer: 7
-  m_Name: 1
+  m_Name: B
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -281,7 +309,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3494751248129910635}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9112515450886764556
 BoxCollider:
@@ -308,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Number: 1
+  Number: 2
 --- !u!1 &3653323450681398322
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,9 +349,9 @@ GameObject:
   - component: {fileID: 4018353395632067665}
   - component: {fileID: 6698258907706401705}
   m_Layer: 7
-  m_Name: 5
+  m_Name: F
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -367,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Number: 5
+  Number: 6
 --- !u!1 &5840690970282033769
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,9 +506,9 @@ GameObject:
   - component: {fileID: 8371990440241660564}
   - component: {fileID: 5721835091867281789}
   m_Layer: 7
-  m_Name: 2
+  m_Name: C
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -497,7 +525,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3494751248129910635}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8371990440241660564
 BoxCollider:
@@ -524,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Number: 2
+  Number: 3
 --- !u!1 &9154814791369814740
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,11 +581,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1419736618596088861}
   - {fileID: 8178972706710326741}
   - {fileID: 2809147782555616092}
-  - {fileID: 6435208703826638922}
   - {fileID: 8924224989522558023}
+  - {fileID: 1419736618596088861}
+  - {fileID: 6435208703826638922}
   - {fileID: 875089835313773414}
   m_Father: {fileID: 1419736618934984646}
   m_RootOrder: 1
