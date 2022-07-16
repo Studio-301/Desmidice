@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class LaserReciever : MonoBehaviour
 {
-    [SerializeField] LaserSource[] observers;
+    [Range(1, 6)] public int Number;
 
-    public bool IsLit { get; set; }
-
-    public void Solve()
+    public void Lit(LaserBeam beam)
     {
-        foreach(var x in observers)
-        {
-            x.IsLit = IsLit;
-        }
+        beam.TotalStrength += Number;
+    }
+    public void Preview(LaserBeam beam)
+    {
+        beam.TotalStrength += Number;
     }
 }
