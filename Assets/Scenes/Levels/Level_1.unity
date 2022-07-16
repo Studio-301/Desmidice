@@ -522,6 +522,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dice (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
+      propertyPath: data.A
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
+      propertyPath: data.B
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
+      propertyPath: data.C
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
+      propertyPath: data.D
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
+      propertyPath: data.E
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
+      propertyPath: data.F
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
 --- !u!4 &554170799 stripped
@@ -768,6 +792,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 562290133}
     m_Modifications:
+    - target: {fileID: 5445269962244448853, guid: 4911255a5ca58dc40b4fed91ea34df8d, type: 3}
+      propertyPath: Condition
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5445269962244448858, guid: 4911255a5ca58dc40b4fed91ea34df8d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -832,6 +860,10 @@ PrefabInstance:
     - target: {fileID: 6675879879920859218, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: m_Name
       value: Laser Emitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: BaseBeamStreangth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6675879879920859246, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: m_RootOrder
