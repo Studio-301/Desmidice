@@ -1,9 +1,11 @@
 using UnityEngine;
+using TMPro;
 
 public class UI_2DElement : MonoBehaviour
 {
     public Camera Camera;
     public Transform Target;
+    public TMP_Text Text;
 
     public RectTransform This;
 
@@ -17,6 +19,11 @@ public class UI_2DElement : MonoBehaviour
         This = GetComponent<RectTransform>();
 
         initialized = true;
+    }
+
+    public void SetValue(int value)
+    {
+        Text.text = value.ToString();
     }
 
     void Update()

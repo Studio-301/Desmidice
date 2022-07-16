@@ -187,4 +187,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
   Target: {fileID: 0}
+  Text: {fileID: 3479261477689051978}
   This: {fileID: 3479261478177524950}
