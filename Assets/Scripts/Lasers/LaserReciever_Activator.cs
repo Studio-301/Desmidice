@@ -9,7 +9,7 @@ public class LaserReciever_Activator : LaserReciever
 
     [Title("Events")]
     public UnityEvent Activate;
-    public UnityEvent Deactiavte;
+    public UnityEvent Deactivate;
 
     [Title("Settings")]
     public int Condition;
@@ -20,7 +20,7 @@ public class LaserReciever_Activator : LaserReciever
 
     void Awake()
     {
-        Deactiavte?.Invoke();
+        Deactivate?.Invoke();
     }
 
     public override void Lit(LaserBeam beam)
@@ -47,7 +47,7 @@ public class LaserReciever_Activator : LaserReciever
             if (IsCompleate)
                 Activate.Invoke();
             else
-                Deactiavte.Invoke();
+                Deactivate.Invoke();
         }
 
         isCompleateLastTick = IsCompleate;
