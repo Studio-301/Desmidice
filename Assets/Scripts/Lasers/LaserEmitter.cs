@@ -41,7 +41,7 @@ public class LaserEmitter : MonoBehaviour
         Vector3 origin = t.position;
         Vector3 dir = t.forward;
 
-        LaserBeam.AddNode(origin, gameObject);
+        LaserBeam.AddNode(origin);
 
         //Solve beam
         bool forceStop = false;
@@ -59,8 +59,6 @@ public class LaserEmitter : MonoBehaviour
                         reciever.Preview(LaserBeam);
                     else
                         reciever.Lit(LaserBeam);
-
-
                 }
                 else
                     forceStop = true;
@@ -69,7 +67,7 @@ public class LaserEmitter : MonoBehaviour
                 origin = info.point;
                 dir = Vector3.Reflect(dir, info.normal);
 
-                LaserBeam.AddNode(info.point, obj);
+                LaserBeam.AddNode(info.point);
             }
             else
                 break;

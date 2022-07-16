@@ -16,18 +16,16 @@ public class LaserBeam
     /// <summary>
     /// Uses current strength.
     /// </summary>
-    public void AddNode(Vector3 pos, GameObject debug) => AddNode(pos, TotalStrength, debug);
-    public void AddNode(Vector3 pos, int strength, GameObject debug) => Nodes.Add(new Node()
+    public void AddNode(Vector3 pos) => AddNode(pos, TotalStrength);
+    public void AddNode(Vector3 pos, int strength) => Nodes.Add(new Node()
     {
         Point = pos,
         Strength = strength,
-        DebugReference = debug
     });
 
     public struct Node
     {
         public Vector3 Point;
         public int Strength;
-        public GameObject DebugReference;
     }
 }
