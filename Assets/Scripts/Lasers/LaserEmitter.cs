@@ -103,7 +103,13 @@ public class LaserEmitter : MonoBehaviour
 #endif
     }
 
-    void Preview() => TickLaser(preview: true);
+    void Preview()
+    {
+        if (gameObject == null)
+            return;
+
+        TickLaser(preview: true);
+    }
 
     void OnDrawGizmos() //Debug
     {

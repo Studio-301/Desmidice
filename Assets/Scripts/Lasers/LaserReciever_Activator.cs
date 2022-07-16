@@ -15,7 +15,8 @@ public class LaserReciever_Activator : LaserReciever
     public int Condition;
 
     [Disable] public bool IsCompleate;
-    bool isCompleateLastTick;
+    bool lastApplied;
+
     bool updateDecay;
 
     void Awake()
@@ -39,18 +40,17 @@ public class LaserReciever_Activator : LaserReciever
 
     void HandleEvents()
     {
-        if (updateDecay) //wasn't updated for at least one frame
+        if (updateDecay)
             IsCompleate = false;
 
-        if (isCompleateLastTick != IsCompleate)
+        if (lastApplied != IsCompleate)
         {
+            lastApplied = IsCompleate;
             if (IsCompleate)
                 Activate.Invoke();
             else
                 Deactivate.Invoke();
         }
-
-        isCompleateLastTick = IsCompleate;
 
         updateDecay = true;
     }
