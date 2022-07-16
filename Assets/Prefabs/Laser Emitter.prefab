@@ -112,5 +112,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 129
   orientationReference: {fileID: 6675879879920859246}
