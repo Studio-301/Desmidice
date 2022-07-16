@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dice : MonoBehaviour
 {
-    public enum Sides { _0, _1, _2, _3, _4, _5, _6, _7, _8, _9 }
+    public enum Sides { _0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10 }
 
     [Title("Reference")]
     [SerializeField] DiceVisual visuals;
@@ -78,7 +78,7 @@ public class Dice : MonoBehaviour
         style.normal.textColor = Color.black;
         UnityEditor.Handles.Label(pos, text, style);
         style.normal.textColor = Color.yellow;
-        UnityEditor.Handles.Label(pos+Vector3.up*0.003f, text, style);
+        UnityEditor.Handles.Label(pos + Vector3.up * 0.003f, text, style);
 #endif
     }
 }

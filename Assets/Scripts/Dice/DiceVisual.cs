@@ -5,7 +5,7 @@ using UnityEngine;
 public class DiceVisual : MonoBehaviour
 {
     [Header("References")]
-    public Material diceMaterial;
+    //public Material diceMaterial;
 
     public MeshRenderer meshRenderer;
 

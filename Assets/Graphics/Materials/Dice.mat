@@ -9,13 +9,15 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Dice
   m_Shader: {fileID: -6465566751694194690, guid: 3f4eca5f5d4cd3b49a2581cf357e5344, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _SPECULAR_SETUP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -38,17 +40,35 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 1
+    - _AlphaClip: 0
+    - _AlphaClipping: 0
+    - _Blend: 2
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 0
+    - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ReceiveShadows: 1
     - _Side_A: 1
     - _Side_B: 2
     - _Side_C: 3
     - _Side_D: 4
     - _Side_E: 5
     - _Side_F: 6
+    - _Smoothnees: 0.885
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 0
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
     m_Colors:
-    - _Dice_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Dot_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Dice_Color: {r: 0.695, g: 0.695, b: 0.695, a: 0}
+    - _Dot_Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Specular: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6023952479006662440
 MonoBehaviour:
