@@ -245,6 +245,11 @@ MonoBehaviour:
   EnableMove: 1
   MoveLength: 0.3
   MoveEase: 30
+  GroundY: 0.7
+  SkyY: 2.2
+  GrabLength: 0.3
+  GrabEase: 27
+  ReleaseEase: 30
 --- !u!1 &3247359420838739633
 GameObject:
   m_ObjectHideFlags: 0

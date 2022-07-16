@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class DiceManipulator : MonoBehaviour
@@ -8,6 +9,7 @@ public class DiceManipulator : MonoBehaviour
     [Header("Raycast Settings")]
     public LayerMask ManipulatableLayerMask;
     public LayerMask GridLayerMask;
+    public LayerMask BoxCastMask;
 
     //Internals
     Manipulatable currentlyHeld;
@@ -43,7 +45,7 @@ public class DiceManipulator : MonoBehaviour
                 {
                     //Can move it
                     currentlyHeld = manipulatable;
-                    currentlyHeld.SetGrabState(true);
+                    currentlyHeld.Grab();
 
                     Vector3? point = RaycastForGrid(false);
 
@@ -62,10 +64,14 @@ public class DiceManipulator : MonoBehaviour
             if (point != null)
             {
                 Vector3 snappedPosition = Vector3Int.RoundToInt(point.Value + grabOffset);
+                snappedPosition.y = currentlyHeld.GroundY;// + 0.1f;
 
-                currentlyHeld.SnapTo(snappedPosition);
-                currentlyHeld.SetGrabState(false);
-                currentlyHeld = null;
+                if (!BoxCast(snappedPosition, currentlyHeld.transform.rotation, currentlyHeld.transform.localScale))
+                {
+                    currentlyHeld.SnapTo(snappedPosition);
+                    currentlyHeld.Release();
+                    currentlyHeld = null;
+                }
             }
         }
     }
@@ -137,5 +143,22 @@ public class DiceManipulator : MonoBehaviour
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Return true if it finds a collision
+    /// </summary>
+    bool BoxCast(Vector3 position, Quaternion rotation, Vector3 scale)
+    {
+        Collider[] x = Physics.OverlapBox(position, scale / 2f, rotation, BoxCastMask);
+
+        foreach (var item in x)
+        {
+            if (!item.transform.IsChildOf(currentlyHeld.transform))
+                return true;
+        }
+
+        return false;
+        return x.Length != 0;
     }
 }
