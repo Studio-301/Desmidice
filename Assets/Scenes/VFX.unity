@@ -484,6 +484,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: df95499f5bdeae141b2587f94824fbe0, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 4eb9c6321aa609441a523283c7a97d62, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 563d0eb5ea221664e919682606029bab, type: 3}
     - target: {fileID: 919132149155446097, guid: 4eb9c6321aa609441a523283c7a97d62, type: 3}
       propertyPath: m_Name
       value: dice
@@ -736,7 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef17fc19ce44ee45aa2716451df377b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceMaterial: {fileID: 2100000, guid: df95499f5bdeae141b2587f94824fbe0, type: 2}
   meshRenderer: {fileID: 1971616369}
 --- !u!23 &1971616369 stripped
 MeshRenderer:
