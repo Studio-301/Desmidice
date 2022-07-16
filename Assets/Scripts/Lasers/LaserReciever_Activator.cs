@@ -5,13 +5,13 @@ using UnityEngine.Events;
 
 public class LaserReciever_Activator : LaserReciever
 {
-    public override bool Reflect => false;
-
     [Title("Events")]
     public UnityEvent Activate;
     public UnityEvent Deactivate;
 
     [Title("Settings")]
+    [SerializeField] bool matchAnyNumber;
+    [HideIf("matchAnyNumber", true)]
     public int Condition;
 
     [Disable] public bool IsCompleate;
@@ -24,20 +24,15 @@ public class LaserReciever_Activator : LaserReciever
         Deactivate?.Invoke();
     }
 
-    public override void Lit(LaserBeam beam)
-    {
-        IsCompleate = beam.Complete = beam.TotalStrength == Condition;
-        updateDecay = false;
-    }
-
-    public override void Preview(LaserBeam beam)
-    {
-        IsCompleate = beam.Complete = beam.TotalStrength == Condition;
-        updateDecay = false;
-    }
-
     void LateUpdate() => HandleEvents();
 
+    public override void Interact(LaserBeam beam, ref Ray ray, RaycastHit info, bool isPreview, out bool continueBeam, AddNode addNode)
+    {
+        continueBeam = false;
+        IsCompleate = beam.Complete = beam.TotalStrength == Condition || matchAnyNumber;
+        addNode(info.point, beam.TotalStrength, this);
+        updateDecay = false;
+    }
     void HandleEvents()
     {
         if (updateDecay)
@@ -54,4 +49,5 @@ public class LaserReciever_Activator : LaserReciever
 
         updateDecay = true;
     }
+
 }

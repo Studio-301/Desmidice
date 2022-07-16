@@ -8,6 +8,7 @@ public class LaserEmitter : MonoBehaviour
     public bool IsLit { get; set; }
 
     public LaserBeam LaserBeam { get; private set; } = new();
+    [SerializeField] int BaseBeamStreangth;
 
     [SerializeField] LayerMask mask;
     [EditorButton("ClearPreview", "Hide laser")]
@@ -36,50 +37,40 @@ public class LaserEmitter : MonoBehaviour
 
         //Reset beam
         LaserBeam.Reset();
+        LaserBeam.TotalStrength = BaseBeamStreangth;
 
         var t = orientationReference;
 
-        Vector3 origin = t.position;
-        Vector3 dir = t.forward;
+        var ray = new Ray(t.position, t.forward);
 
-        LaserBeam.AddNode(origin, null);
+        LaserBeam.AddNode(ray.origin, null);
 
         //Solve beam
         bool forceStop = false;
         for (int i = 0; i < MaxSegments && !forceStop; i++)
         {
-            if (Raycast(origin, dir, out info))
+            if (Raycast(ray, out info))
             {
                 var obj = info.collider.gameObject;
 
                 if (obj.TryGetComponent<LaserReciever>(out var reciever))
                 {
-                    if (preview)
-                        reciever.Preview(LaserBeam);
-                    else
-                        reciever.Lit(LaserBeam);
+                    reciever.Interact(LaserBeam, ref ray, info, preview, out bool continueBeam, LaserBeam.AddNode);
+                    forceStop = !continueBeam;
                 }
                 else
-                    forceStop = true;
-
-                //Params for next segment
-                if (reciever != null && reciever.Reflect)
                 {
-                    origin = info.point;
-                    dir = Vector3.Reflect(dir, info.normal);
-                }
-                else
                     forceStop = true;
-
-                LaserBeam.AddNode(info.point, reciever);
+                    LaserBeam.AddNode(info.point, null);
+                }
             }
             else
-                break;
+                forceStop = true;
         }
     }
 
 
-    bool Raycast(Vector3 start, Vector3 dir, out RaycastHit hit) => Physics.Raycast(start, dir, out hit, 999, mask);
+    bool Raycast(Ray ray, out RaycastHit hit) => Physics.Raycast(ray.origin, ray.direction, out hit, 999, mask);
 
     // -------------------- DEBUG
     void ClearPreview()
@@ -111,6 +102,7 @@ public class LaserEmitter : MonoBehaviour
         TickLaser(preview: true);
     }
 
+    [SerializeField, Range(0, 20)] int manualPreview;
     void OnDrawGizmos() //Debug
     {
         if (LaserBeam == null)
@@ -119,6 +111,9 @@ public class LaserEmitter : MonoBehaviour
         var points = LaserBeam.Nodes;
         for (int i = 0; i < points.Count - 1; i++)
         {
+            if (manualPreview != 0 && i >= manualPreview)
+                continue;
+
             var a = points[i + 0];
             var b = points[i + 1];
 

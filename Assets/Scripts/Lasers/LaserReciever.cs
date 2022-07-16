@@ -4,7 +4,5 @@ using UnityEngine;
 
 public abstract class LaserReciever : MonoBehaviour
 {
-    public abstract bool Reflect { get; }
-    public abstract void Lit(LaserBeam beam);
-    public abstract void Preview(LaserBeam beam);
+    public abstract void Interact(LaserBeam beam, ref Ray ray, RaycastHit info, bool isPreview, out bool continueBeam, AddNode addNode);
 }

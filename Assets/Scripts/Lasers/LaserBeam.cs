@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void AddNode(Vector3 pos, int strength, LaserReciever reciever);
 public class LaserBeam
 {
     /// <summary>
