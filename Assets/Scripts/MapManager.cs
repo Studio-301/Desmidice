@@ -69,12 +69,15 @@ public class MapManager : MonoBehaviour
                 nextLevelIndex = i + 1;
         }
 
-        if (nextLevelIndex > Levels.Length)
+        if (nextLevelIndex >= Levels.Length)
         {
-            CloseLevel();
+            //CloseLevel();
             uiManager.ShowCredits();
         }
         else
+        {
+            uiManager.ShowGame();
             OpenLevel(Levels[nextLevelIndex]);
+        }
     }
 }

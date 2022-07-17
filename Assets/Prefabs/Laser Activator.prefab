@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beam Value v2
       objectReference: {fileID: 0}
+    - target: {fileID: 6371330986568126685, guid: a6c558f82aea72643b7d9b1360f6cb99, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7401214882738120014, guid: a6c558f82aea72643b7d9b1360f6cb99, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
