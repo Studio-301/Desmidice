@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 1336215997}
   - component: {fileID: 1336215996}
   m_Layer: 0
-  m_Name: NextLevel
+  m_Name: Next level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
