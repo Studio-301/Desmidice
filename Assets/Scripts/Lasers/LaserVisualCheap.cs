@@ -20,6 +20,8 @@ public class LaserVisualCheap : MonoBehaviour
 
     int diceCount = 0;
 
+    int currentStrenth = 0;
+
     public void SetState(bool state)
     {
         if (beam.enabled != state)
@@ -48,11 +50,9 @@ public class LaserVisualCheap : MonoBehaviour
 
         int count = (int)(Vector3.Distance(pointA, pointB) / spacing);
 
-        Debug.Log("Dice Count = " + count);
+        currentStrenth = strength;
 
         SetCount(count);
-
-        dice.SetCustomParticleData(new List<Vector4>() { new Vector4(strength, 0, 0, 0) }, ParticleSystemCustomData.Custom1);
     }
 
     public void SetColor(Color color)
@@ -66,15 +66,21 @@ public class LaserVisualCheap : MonoBehaviour
         {
             Particle[] particles = new Particle[diceCount];
 
-            dice.GetParticles(particles);
+            int cnt = dice.GetParticles(particles);
 
-            for (int i = 0; i < diceCount; i++)
+            for (int i = 0; i < cnt; i++)
             {
                 particles[i].position = Vector3.Lerp(pointA, pointB, ((Time.time * speed + (float)i) % diceCount / diceCount) % 1f);
                 Debug.DrawRay(particles[i].position, Vector3.up, Color.red);
             }
 
-            dice.SetParticles(particles, diceCount);
+            List<Vector4> particleData = new();
+
+            for (int i = 0; i < cnt; i++)
+                particleData.Add(new Vector4(currentStrenth, 0, 0, 0));
+
+            dice.SetCustomParticleData(particleData, ParticleSystemCustomData.Custom1);
+            dice.SetParticles(particles, cnt);
         }
     }
 

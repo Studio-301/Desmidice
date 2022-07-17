@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beam: {fileID: 8265805761527462173}
   dice: {fileID: 8265805761527462172}
-  speed: 0.5
+  speed: 1
   spacing: 2
 --- !u!198 &8265805761527462172
 ParticleSystem:
@@ -4939,7 +4939,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: df95499f5bdeae141b2587f94824fbe0, type: 2}
+  - {fileID: 2100000, guid: 8ba764d6797187b4a8e22f63cbc5da4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
