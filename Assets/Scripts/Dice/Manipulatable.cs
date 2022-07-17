@@ -89,6 +89,8 @@ public class Manipulatable : MonoBehaviour
 
     public void MoveShadowTo(Vector3 destination)
     {
+        destination.y -= transform.localScale.y / 2f;
+        destination.y += 0.1f;
         Shadow.transform.position = destination;
     }
 

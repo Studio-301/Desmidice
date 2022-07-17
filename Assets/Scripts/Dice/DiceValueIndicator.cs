@@ -14,6 +14,12 @@ public class DiceValueIndicator : MonoBehaviour
     public TMP_Text D;
     public TMP_Text E;
 
+    [Header("Shadows")]
+    public GameObject AShadow;
+    public GameObject BShadow;
+    public GameObject DShadow;
+    public GameObject EShadow;
+
     [Header("Tweens")]
     public CanvasGroup CanvasGroup;
     public float FadeLength = 0.3f;
@@ -85,6 +91,11 @@ public class DiceValueIndicator : MonoBehaviour
         B.text = GetValueText(Dice.data.B);
         D.text = GetValueText(Dice.data.D);
         E.text = GetValueText(Dice.data.E);
+
+        AShadow.SetActive(A.text != "");
+        BShadow.SetActive(B.text != "");
+        DShadow.SetActive(D.text != "");
+        EShadow.SetActive(E.text != "");
     }
 
     string GetValueText(Dice.Sides e)

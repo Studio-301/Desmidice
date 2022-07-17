@@ -586,6 +586,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7017262230903259239, guid: 36a69491feaf80944a038cd47c1430f6, type: 3}
   m_PrefabInstance: {fileID: 213523001}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &240954238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 240954240}
+  - component: {fileID: 240954239}
+  m_Layer: 0
+  m_Name: Reflection Probe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!215 &240954239
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240954238}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 2
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 250, y: 50, z: 250}
+  m_BoxOffset: {x: 0, y: 25, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 1
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 8900000, guid: 5b4b06678871f494fa00d102ed2501de, type: 3}
+--- !u!4 &240954240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240954238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241826906
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +860,10 @@ PrefabInstance:
       propertyPath: Operation
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Operation
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6374166228901250410, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: m_Name
       value: Gate_90
@@ -858,6 +927,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4058350820777815597, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Number
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: Number
       value: 4
       objectReference: {fileID: 0}
@@ -1094,6 +1167,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4058350820777815597, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Operation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: Operation
       value: 2
       objectReference: {fileID: 0}
@@ -1862,6 +1939,10 @@ PrefabInstance:
       propertyPath: Number
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Number
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6374166228901250410, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: m_Name
       value: Gate_90 (1)
@@ -2022,6 +2103,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4058350820777815597, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Number
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: Number
       value: 3
       objectReference: {fileID: 0}

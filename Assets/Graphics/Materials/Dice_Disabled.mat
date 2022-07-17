@@ -15,7 +15,8 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -38,17 +39,35 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 1
+    - _AlphaClip: 0
+    - _AlphaClipping: 0
+    - _Blend: 2
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 0
+    - _Metallic: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ReceiveShadows: 1
     - _Side_A: 1
     - _Side_B: 2
     - _Side_C: 3
     - _Side_D: 4
     - _Side_E: 5
     - _Side_F: 6
+    - _Smoothnees: 0.5
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
     m_Colors:
-    - _Dice_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Dice_Color: {r: 0.20754719, g: 0.05971876, b: 0.05971876, a: 0}
     - _Dot_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Specular: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6023952479006662440
 MonoBehaviour:
