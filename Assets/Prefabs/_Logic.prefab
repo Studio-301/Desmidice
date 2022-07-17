@@ -210,11 +210,11 @@ PrefabInstance:
     - target: {fileID: 1526348173037657591, guid: 0e87b015feb85324db54cc33818b30cf, type: 3}
       propertyPath: beamUI
       value: 
-      objectReference: {fileID: 3479261478177524905, guid: e6fbea96cb6041849b8331b5fee25676, type: 3}
+      objectReference: {fileID: 654040944338013467, guid: a6c558f82aea72643b7d9b1360f6cb99, type: 3}
     - target: {fileID: 1526348173037657591, guid: 0e87b015feb85324db54cc33818b30cf, type: 3}
       propertyPath: uiRoot
       value: 
-      objectReference: {fileID: 6468822729571218764}
+      objectReference: {fileID: 6002110458193147362}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e87b015feb85324db54cc33818b30cf, type: 3}
 --- !u!1 &6002110458193147164 stripped
@@ -261,6 +261,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  uiManager: {fileID: 0}
   Levels:
   - Name: Level 3
     ID: Game_Level_3
