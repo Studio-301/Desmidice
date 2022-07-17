@@ -28,6 +28,7 @@ public class SoundBank : MonoBehaviour
 
     public void PlayClip(string id, Vector3 position)
     {
-        AudioSource.PlayClipAtPoint(Clips[id][Random.Range(0, Clips.Count)], position);
+        PlayClip(id);
+        //AudioSource.PlayClipAtPoint(Clips[id][Random.Range(0, Clips.Count)], position);
     }
 }

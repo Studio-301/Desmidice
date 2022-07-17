@@ -28,6 +28,7 @@ public class DiceValueIndicator : MonoBehaviour
     Camera camera;
 
     bool isHeld = false;
+    bool isHovered = false;
 
     void Start()
     {
@@ -46,25 +47,28 @@ public class DiceValueIndicator : MonoBehaviour
 
         UpdateValues();
 
-        CanvasGroup.DOComplete();
-        CanvasGroup.DOFade(1f, FadeLength);
+        if (!isHovered)
+        {
+            CanvasGroup.DOFade(1f, FadeLength);
+        }
     }
 
     void OnRelease()
     {
         isHeld = false;
 
-        CanvasGroup.DOComplete();
-        CanvasGroup.DOFade(0f, FadeLength);
+        if (!isHovered)
+        {
+            CanvasGroup.DOFade(0f, FadeLength);
+        }
     }
 
     void OnRotate()
     {
-        if (!isHeld)
+        if (!isHeld && !isHovered)
         {
             UpdateValues();
 
-            CanvasGroup.DOComplete();
             CanvasGroup.DOFade(1f, FadeLength);
             CanvasGroup.DOFade(0f, FadeLength).SetDelay(FadeOutDelay);
         }
@@ -102,5 +106,28 @@ public class DiceValueIndicator : MonoBehaviour
     {
         string output = ((int)e).ToString();
         return output == "0" ? "" : output;
+    }
+
+    public void OnMouseEnter()
+    {
+        UpdateValues();
+        isHovered = true;
+
+        if (!isHeld)
+        {
+            CanvasGroup.DOComplete();
+            CanvasGroup.DOFade(1f, FadeLength);
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        isHovered = false;
+
+        if (!isHeld)
+        {
+            CanvasGroup.DOComplete();
+            CanvasGroup.DOFade(0f, FadeLength);
+        }
     }
 }
