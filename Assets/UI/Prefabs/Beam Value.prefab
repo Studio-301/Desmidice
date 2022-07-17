@@ -145,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3479261478177524950}
   - component: {fileID: 3479261478177524905}
+  - component: {fileID: 8401092339944473528}
   m_Layer: 5
   m_Name: Beam Value
   m_TagString: Untagged
@@ -186,6 +187,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
-  Target: {fileID: 0}
+  Target: {x: 0, y: 0, z: 0}
   Text: {fileID: 3479261477689051978}
   This: {fileID: 3479261478177524950}
+  group: {fileID: 8401092339944473528}
+--- !u!225 &8401092339944473528
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479261478177524951}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

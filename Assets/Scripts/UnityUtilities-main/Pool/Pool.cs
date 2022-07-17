@@ -114,6 +114,60 @@ namespace Tools.UnityUtilities
         }
 
 
+        public virtual T[] AdapticeRecyclePool(int count, Func<T, bool> isWorthRecycling, bool fullReinit = false)
+        {
+            var finalValues = new T[count];
+
+            int resultIndex = 0;
+            LinkedListNode<T> usedNode = used.First;
+            bool reuse = true;
+            var usedCount = used.Count;
+
+            for (int i = 0; i < usedCount; i++)
+            {
+                if (usedNode == null)
+                    break;
+
+                if (resultIndex >= count)
+                    reuse = false;
+
+                var toRecycle = isWorthRecycling(usedNode.Value);
+
+                if (reuse && toRecycle)
+                {
+                    finalValues[resultIndex++] = usedNode.Value;
+
+                    if (fullReinit)
+                        FreeElement(usedNode.Value, false, false);
+                    UseElement(usedNode.Value, false, false);
+
+                    usedNode = usedNode.Next;
+                }
+                else
+                {
+                    var toReturn = usedNode.Value;
+                    usedNode = usedNode.Next;
+                    ReturnElement(toReturn);
+                }
+            }
+
+            //Get the rest from free pool
+            var neededElements = (count) - resultIndex;
+            for (int i = 0; i < neededElements; i++)
+            {
+                //Debug.Log("CREATE");
+                GetElement(out var e);
+                finalValues[resultIndex++] = e;
+            }
+
+            if (resultIndex != count)
+                Debug.LogError($"ODD STATE: {resultIndex} vs {count}");
+
+            //Debug.Log($"RECYCLE: {index} out of {usedCount} (created: {Mathf.Clamp(neededElements, 0, int.MaxValue)})");
+
+            return finalValues;
+        }
+
         public virtual T[] RecyclePool(int count, bool fullReinit = false)
         {
             var finalValues = new T[count];
@@ -123,29 +177,16 @@ namespace Tools.UnityUtilities
             bool reuse = true;
             var usedCount = used.Count;
 
-            //string list = "";
-            //IterateAllUsed((e, i) => list += $"{e.GetHashCode()}\n");
-            //Debug.Log($"{Time.frameCount} - RECYCLE USED ({count}/{usedCount}):\n{list}");
-
-            //Reissuing used instances + returning the rest of used
             for (int i = 0; i < usedCount; i++)
             {
-                if(count < usedCount)
-                {
-                    //Debug.Log($"CYCLE: {i} - {usedNode?.Value.GetHashCode()}");
-                }
-
                 if (usedNode == null)
-                {
                     break;
-                }
 
                 if (index >= count)
                     reuse = false;
 
                 if (reuse)
                 {
-                    //Debug.Log("USE");
                     finalValues[index++] = usedNode.Value;
 
                     if(fullReinit)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static VFXManager;
 
 public delegate void AddNode(Vector3 pos, int strength, LaserReciever reciever);
 public class LaserBeam
@@ -22,7 +23,8 @@ public class LaserBeam
     /// </summary>
     public List<Node> Nodes = new List<Node>(80);
 
-    public List<LaserVisual> LastVFXs = new(); //<=== MATCH VFX through out differenet ticks
+    public List<BeamElement> CurrentElements = new();
+    public List<BeamElement> LastElements = new();
 
     public void Reset()
     {

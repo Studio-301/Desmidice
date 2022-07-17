@@ -16,7 +16,7 @@ public class LaserEmitter : MonoBehaviour
     [EditorButton("Enable_Preview", "Preview laser")]
     [SerializeField] Transform orientationReference;
 
-    public const int MaxSegments = 25;
+    public const int MaxSegments = 10;
 
     RaycastHit info;
 
@@ -129,11 +129,19 @@ public class LaserEmitter : MonoBehaviour
             Gizmos.DrawLine(a.Point, b.Point);
         }
 
-        if(LaserBeam.Complete && points.Any())
+        if (LaserBeam.Complete && points.Any())
         {
             var pos = points.Last().Point;
 #if UNITY_EDITOR
             UnityEditor.Handles.Label(pos, $"COMPLEATED: {LaserBeam.TotalStrength}");
+#endif    
+        }
+
+        if (points.Any())
+        {
+            var pos = points.First().Point;
+#if UNITY_EDITOR
+            UnityEditor.Handles.Label(pos, $"BEAM: {points.Count}");
 #endif    
         }
     }

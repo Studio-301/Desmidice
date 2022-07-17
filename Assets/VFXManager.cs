@@ -10,11 +10,19 @@ using UnityEngine.VFX;
 [DefaultExecutionOrder(-1)]
 public class VFXManager : MonoBehaviour
 {
+    public class BeamElement
+    {
+        public LaserVisual VFX;
+        public UI_2DElement UI;
+    }
+
     LaserEmitter[] lasers;
 
     [SerializeField] LaserVisual beamEffect;
+    [SerializeField] UI_2DElement beamUI;
+    [SerializeField] Transform uiRoot;
 
-    Pool<LaserVisual> vfxPool = new()
+    Pool<BeamElement> elementPool = new()
     {
         ExpansionStep = 20,
         AutoExpand = false
@@ -26,45 +34,84 @@ public class VFXManager : MonoBehaviour
     {
         lasers = FindObjectsOfType<LaserEmitter>();
 
-        vfxPool.SetFactory(() => Instantiate(beamEffect, transform));
-        vfxPool.OnUse = (x) => x.SetState(true);
-        vfxPool.OnFree = (x) => x.SetState(false);
-        vfxPool.CreateElements(LaserEmitter.MaxSegments * 5);
+        elementPool.SetFactory(() => new BeamElement()
+        {
+            VFX = Instantiate(beamEffect, transform),
+            UI = Instantiate(beamUI, uiRoot)
+        });
+        elementPool.OnUse = (x) =>
+        {
+            x.VFX.SetState(true);
+            x.UI.SetState(true);
+        };
+        elementPool.OnFree = (x) =>
+        {
+            x.VFX.SetState(false);
+            x.UI.SetState(false);
+        };
+        elementPool.CreateElements(LaserEmitter.MaxSegments * 5);
+        elementPool.IterateAllFree((beamElement, i) => {
+            var vfx = beamElement.VFX;
+            vfx.gameObject.name = $"{nameof(vfx)}_{i}";
 
-        //InvokeRepeating("DisplayLasers", 0, laserDisplayRate);
+            var ui = beamElement.UI;
+            ui.gameObject.name = $"{nameof(ui)}_{i}";
+        });
+
+        if (laserDisplayRate != 0)
+            InvokeRepeating("DisplayLasers", 0, laserDisplayRate);
     }
 
     private void Update()
     {
-        DisplayLasers();
+        if (laserDisplayRate == 0)
+            DisplayLasers();
     }
 
     void DisplayLasers()
     {
         var totalElementsCount = lasers.Sum(x => Mathf.Clamp(x.LaserBeam.Nodes.Count - 1, 0, int.MaxValue));
-        var elements = vfxPool.RecyclePool(totalElementsCount, fullReinit: false);
-        if (elements.GroupBy(x => x).Any(x => x.Count() > 1))
+
+        foreach(var laser in lasers)
         {
-            string status = "";
+            var beam = laser.LaserBeam;
+            var elemCount = Mathf.Clamp(beam.Nodes.Count - 1, 0, int.MaxValue);
 
-            status += "USED:\n";
-            vfxPool.IterateAllUsed((e, i) => status += $"{i} - {e.GetHashCode()}\n");
-            status += "\n\nFREE:\n";
-            vfxPool.IterateAllFree((e, i) => status += $"{i} - {e.GetHashCode()}\n");
+            var recycled = beam.LastElements.Take(elemCount).ToList();
+            var recycledCount = recycled.Count;
+            var toRender = recycled;
+            var newCount = elemCount - toRender.Count();
 
-            //Debug.Log($"POOL:\n{status}");
+            for (int i = 0; i < newCount; i++)
+            {
+                elementPool.GetElement(out var element);
+                toRender.Add(element);
+            }
 
-            Debug.LogError($"Duplicit results detected:\n{status}");
+            beam.CurrentElements.Clear();
+            beam.CurrentElements.AddRange(toRender);
+
+            beam.LastElements.Clear();
+            beam.LastElements.AddRange(toRender);
+
+            //Assert
+            if (elemCount != beam.CurrentElements.Count)
+                Debug.LogError($"[LASER] wanted nodes != vfx count");
+
+            DisplayBeam(beam);
         }
 
-        int vfxIndex = 0;
-        foreach(var x in lasers)
+        List<BeamElement> elementsToReturn = new();
+        elementPool.IterateAllUsed((element, i) =>
         {
-            DisplayBeam(x.LaserBeam, () => elements[vfxIndex++]);
-        }
+            var notUsed = lasers.All(x => !x.LaserBeam.CurrentElements.Contains(element));
+            if (notUsed)
+                elementsToReturn.Add(element);
+        });
+        elementsToReturn.ForEach(x => elementPool.ReturnElement(x));
     }
 
-    public void DisplayBeam(LaserBeam beam, Func<LaserVisual> getElement)
+    public void DisplayBeam(LaserBeam beam)
     {
         var points = beam.Nodes;
         for (int i = 0; i < points.Count - 1; i++)
@@ -75,10 +122,16 @@ public class VFXManager : MonoBehaviour
 
             var middle = a.Point + (b.Point - a.Point) / 2;
 
-            var vfx = getElement();
+            var elem = beam.CurrentElements[i];
+            var vfx = elem.VFX;
 
-            vfx.SetPoints(a.Point, b.Point, isEnd, a.Strength);
+            //vfx.transform.position = middle;
+            vfx.SetPoints(a.Point, b.Point, isEnd, i == 0, a.Strength);
             vfx.SetColor(beam.MainColor);
+
+            var ui = elem.UI;
+            ui.Initialize(Camera.main, middle);
+            ui.SetValue(a.Strength);
         }
     }
 }
