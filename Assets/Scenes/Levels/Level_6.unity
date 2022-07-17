@@ -812,6 +812,10 @@ PrefabInstance:
       propertyPath: Operation
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Operation
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6374166228901250410, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: m_Name
       value: Gate_90
@@ -1232,6 +1236,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4058350820777815597, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Operation
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: Operation
       value: 3
       objectReference: {fileID: 0}
@@ -1991,6 +1999,14 @@ PrefabInstance:
       propertyPath: Operation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Number
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Operation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6374166228901250410, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: m_Name
       value: Gate_90 (1)
@@ -2151,6 +2167,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4058350820777815597, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
+      propertyPath: Number
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597450426227426554, guid: b4a950f00ffaee146a77ae71e9839956, type: 3}
       propertyPath: Number
       value: 5
       objectReference: {fileID: 0}
