@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
 
     [Header("Pan")]
     [SerializeField] float panSensitivity = 20f;
-    
+
     Vector3 panForward => Quaternion.Euler(0, -targetAngle, 0) * transform.forward.NoY().normalized;
     Vector3 panRight => Quaternion.Euler(0, -targetAngle, 0) * transform.right.NoY().normalized;
 
@@ -37,19 +37,23 @@ public class CameraController : MonoBehaviour
         camBasePos = cam.localPosition;
     }
 
-    public void RotateLeft() 
+    public void RotateLeft()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            Rotate(-90);
+        Rotate(90);
     }
     public void RotateRight()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            Rotate(+90);
+        Rotate(-90);
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            RotateLeft();
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            RotateRight();
+
         //ZOOM
         targetZoom += Input.mouseScrollDelta.y * zoomSensitivity;
         targetZoom = Mathf.Clamp(targetZoom, zoomLimits.x, zoomLimits.y);
@@ -57,9 +61,9 @@ public class CameraController : MonoBehaviour
         //PAN
         //More zoomed in => More panning   
         float panIntensity = Mathf.InverseLerp(zoomLimits.x, zoomLimits.y, targetZoom) * panSensitivity;
-        
+
         Vector3 mousePos = Input.mousePosition;
-        
+
         float xNormalized = (mousePos.x / Screen.width).Remap(0.2f, 0.8f, -1, 1).Clamp(-1, 1);
         float yNormalized = (mousePos.y / Screen.height).Remap(0.2f, 0.8f, -1, 1).Clamp(-1, 1);
 

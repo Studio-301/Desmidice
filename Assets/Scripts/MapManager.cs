@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class MapManager : MonoBehaviour
 {
     public UnityEvent OnMapSelected;
+    [SerializeField] UIManager uiManager;
 
     [System.Serializable]
     public class LevelInfo
@@ -60,7 +61,10 @@ public class MapManager : MonoBehaviour
         }
 
         if (nextLevelIndex > Levels.Length)
+        {
             CloseLevel();
+            uiManager.ShowCredits();
+        }
         else
             OpenLevel(Levels[nextLevelIndex]);
     }
