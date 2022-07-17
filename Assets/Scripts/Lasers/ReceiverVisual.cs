@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmitterVisual : MonoBehaviour
+public class ReceiverVisual : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Transform claws;
     [SerializeField] List<MeshRenderer> meshRenderers;
     [SerializeField] Material material;
-    
+
     [Header("Rotation")]
-    [SerializeField] float speed = 1;
+    [SerializeField] float speed = 50;
 
     Material materialInstance;
 
     void Awake()
     {
         materialInstance = new Material(material);
-        
+
         foreach (var meshRenderer in meshRenderers)
         {
             var materials = meshRenderer.materials;
@@ -29,7 +29,7 @@ public class EmitterVisual : MonoBehaviour
                 }
             }
             meshRenderer.materials = materials;
-        } 
+        }
     }
 
     void Update()
@@ -41,4 +41,22 @@ public class EmitterVisual : MonoBehaviour
     {
         materialInstance.SetColor("_EMISSION", color);
     }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
+    public void Valid()
+    {
+        SetSpeed(500);
+        SetColor(Color.white);
+    }
+
+    public void Invalid()
+    {
+        SetSpeed(50);
+        SetColor(Color.black);
+    }
+
 }
