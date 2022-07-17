@@ -45,9 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ba76b240db1f047bd5dc8c37ec812e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 1506254301388870468}
   time: 0.25
   ease: 0
   targetAngle: 0
+  debugggg: {x: 0, y: 0, z: 0}
+  zoomSensitivity: 2
+  zoomLerp: 15
+  zoomLimits: {x: 0, y: 20}
+  panSensitivity: 20
 --- !u!1 &1506254301388870465
 GameObject:
   m_ObjectHideFlags: 0
