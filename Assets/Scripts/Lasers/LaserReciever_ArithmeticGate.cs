@@ -8,6 +8,24 @@ public class LaserReciever_ArithmeticGate : LaserReciever_Gate
     public int Number;
     [SerializeField] ArithmeticOperation Operation;
     [SerializeField] bool clampAbove0;
+    [SerializeField] UI_BeamValueV2 ui;
+
+    private void Awake()
+    {
+        if (ui == null)
+            return;
+
+        ui.Initialize(Camera.main, ui.transform.position);
+        string operation = Operation switch
+        {
+            ArithmeticOperation.SUM => "+",
+            ArithmeticOperation.SUB => "-",
+            ArithmeticOperation.MUL => "×",
+            ArithmeticOperation.DIV => "÷",
+        };
+        ui.Value.text = $"{operation}{Number}";
+        ui.SetState(true);
+    }
 
     public override void Interact(LaserBeam beam, ref Ray ray, RaycastHit info, bool isPreview, out bool continueBeam, AddNode addNode)
     {

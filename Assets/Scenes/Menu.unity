@@ -672,7 +672,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: And this is a clever subtitle :)
+  m_text: arithmetic calculator
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e188be9abd2dcc4881b6c91df40ed9d, type: 2}
   m_sharedMaterial: {fileID: 5285369543298994771, guid: 6e188be9abd2dcc4881b6c91df40ed9d, type: 2}
@@ -5736,7 +5736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Diceulator
+  m_text: Desmidice
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e188be9abd2dcc4881b6c91df40ed9d, type: 2}
   m_sharedMaterial: {fileID: 5285369543298994771, guid: 6e188be9abd2dcc4881b6c91df40ed9d, type: 2}
