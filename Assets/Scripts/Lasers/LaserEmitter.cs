@@ -15,7 +15,7 @@ public class LaserEmitter : MonoBehaviour
     [EditorButton("Enable_Preview", "Preview laser")]
     [SerializeField] Transform orientationReference;
 
-    const int MaxSegments = 100;
+    public const int MaxSegments = 25;
 
     RaycastHit info;
 
@@ -26,7 +26,6 @@ public class LaserEmitter : MonoBehaviour
 
     void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.F5))
         TickLaser();
     }
 
