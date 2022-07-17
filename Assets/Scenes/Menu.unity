@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapManager: {fileID: 1447357625}
-  levelButton: {fileID: 4335396263976598806, guid: e4c218f25e31612438a94e5582bd296a, type: 3}
+  levelButton: {fileID: 1832050150054461322, guid: e4c218f25e31612438a94e5582bd296a, type: 3}
   levelButtonsRoot: {fileID: 414083218}
 --- !u!1001 &73185401
 PrefabInstance:
@@ -2290,6 +2290,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1447357625, guid: df7db108455f8404c8732d83386755e4, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 1007585694}
     - target: {fileID: 1447357625, guid: df7db108455f8404c8732d83386755e4, type: 3}
       propertyPath: OnMapSelected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
