@@ -32,5 +32,7 @@ public class NextLevel : MonoBehaviour
 
         FindObjectOfType<UIManager>().ShowNextLevel();
         FindObjectOfType<DiceManipulator>().enabled = false;
+
+        SoundBank.Instance.PlayClip("Bell");
     }
 }
