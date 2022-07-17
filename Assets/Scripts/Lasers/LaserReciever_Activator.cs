@@ -34,11 +34,11 @@ public class LaserReciever_Activator : LaserReciever
 
         Activate.AddListener(() =>
         {
-            ui.Value.text = $"DONE";
+            ui.Value.text = $"<color=#56ff56>{Condition}";
         });
         Deactivate.AddListener(() =>
         {
-            ui.Value.text = $"{Condition}";
+            ui.Value.text = $"<color=#ff5656>{Condition}";
         });
 
         Deactivate?.Invoke();
