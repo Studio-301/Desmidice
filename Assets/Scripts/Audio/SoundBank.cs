@@ -16,7 +16,9 @@ public class SoundBank : MonoBehaviour
 
     public void PlayClip(string id)
     {
-        Source.PlayOneShot(Clips[id][Random.Range(0, Clips.Count)]);
+        var variants = Clips[id];
+        var sfx = variants[Random.Range(0, variants.Count)];
+        Source.PlayOneShot(sfx);
     }
 
     public void PlayClip(string id, Vector3 position)
