@@ -19,6 +19,8 @@ public class LaserReciever_Activator : LaserReciever
 
     bool updateDecay;
 
+    [SerializeField] UI_BeamValueV2 ui;
+
     public override LaserReciever_Settings Settings => new()
     {
         HideStartCap = false,
@@ -27,6 +29,11 @@ public class LaserReciever_Activator : LaserReciever
 
     void Awake()
     {
+        ui.Initialize(Camera.main, ui.transform.position);
+        ui.Value.text = $"{Condition}";
+        Activate.AddListener(() => ui.SetState(false));
+        Deactivate.AddListener(() => ui.SetState(true));
+
         Deactivate?.Invoke();
     }
 
