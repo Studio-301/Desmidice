@@ -48,7 +48,8 @@ public class VFXManager : MonoBehaviour
             x.UI.SetState(false);
         };
         elementPool.CreateElements(LaserEmitter.MaxSegments * 5);
-        elementPool.IterateAllFree((beamElement, i) => {
+        elementPool.IterateAllFree((beamElement, i) =>
+        {
             var vfx = beamElement.VFX;
             vfx.gameObject.name = $"{nameof(vfx)}_{i}";
 
@@ -60,6 +61,7 @@ public class VFXManager : MonoBehaviour
             InvokeRepeating("DisplayLasers", 0, laserDisplayRate);
     }
 
+    [ContextMenu("Find Lasers")]
     public void FindLasers()
     {
         lasers = FindObjectsOfType<LaserEmitter>();
@@ -76,7 +78,7 @@ public class VFXManager : MonoBehaviour
     {
         var totalElementsCount = lasers.Sum(x => Mathf.Clamp(x.LaserBeam.Nodes.Count - 1, 0, int.MaxValue));
 
-        foreach(var laser in lasers)
+        foreach (var laser in lasers)
         {
             var beam = laser.LaserBeam;
             var elemCount = Mathf.Clamp(beam.Nodes.Count - 1, 0, int.MaxValue);
