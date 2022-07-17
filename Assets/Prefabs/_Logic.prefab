@@ -263,10 +263,22 @@ MonoBehaviour:
         m_CallState: 2
   uiManager: {fileID: 0}
   Levels:
+  - Name: Level 1
+    ID: Level_1
+  - Name: Level 2
+    ID: Level_2
   - Name: Level 3
-    ID: Game_Level_3
-  - Name: DEV test
-    ID: Game_Level_PLAYGROUND
+    ID: Level_3
+  - Name: Level 4
+    ID: Level_4
+  - Name: Level 5
+    ID: Level_5
+  - Name: Level 6
+    ID: Level_6
+  - Name: Level 7
+    ID: Level_7
+  - Name: Level 8
+    ID: Level_8
 --- !u!114 &6002110458193147361 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1526348173037657591, guid: 0e87b015feb85324db54cc33818b30cf, type: 3}
