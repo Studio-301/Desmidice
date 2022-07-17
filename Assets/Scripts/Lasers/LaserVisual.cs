@@ -7,27 +7,39 @@ using UnityEngine.VFX;
 
 public class LaserVisual : MonoBehaviour
 {
-    public VisualEffect laserVFX;
+    [SerializeField] LaserVisualVFX vfx;
+    [SerializeField] LaserVisualCheap cheap;
+    bool vfxSupported => SystemInfo.supportsComputeShaders && SystemInfo.maxComputeBufferInputsVertex > 0;
+
+    void Awake()
+    {
+        if (vfxSupported)
+            vfx.gameObject.SetActive(true);
+        else
+            cheap.gameObject.SetActive(true);
+    }
 
     public void SetState(bool state)
     {
-        if (laserVFX.enabled != state)
-            laserVFX.enabled = state;
+        if (vfxSupported)
+            vfx.SetState(state);
+        else
+            cheap.SetState(state);
     }
 
     public void SetPoints(Vector3 start, Vector3 end, bool endSparks, bool startCap, bool endCap, int strength)
     {
-        transform.position = start + (end - start) / 2;
-        laserVFX.SetVector3("A", start);
-        laserVFX.SetVector3("B", end);
-        laserVFX.SetBool("End Sparks", endSparks);
-        laserVFX.SetInt("Number", Mathf.Clamp(strength, 0, 9));
-        laserVFX.SetBool("Is Start", startCap);
-        laserVFX.SetBool("Is End", endCap);
+        if (vfxSupported)
+            vfx.SetPoints(start, end, endSparks, startCap, endCap, strength);
+        else
+            cheap.SetPoints(start, end, endSparks, startCap, endCap, strength);
     }
-    
+
     public void SetColor(Color color)
     {
-        laserVFX.SetVector4("Color", color);
+        if (vfxSupported)
+            vfx.SetColor(color);
+        else
+            cheap.SetColor(color);
     }
 }
