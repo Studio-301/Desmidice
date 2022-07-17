@@ -8,6 +8,11 @@ public class UI_MuteButton : MonoBehaviour
 
     bool state = true;
 
+    private void Awake()
+    {
+        AudioListener.volume = 0.7f;
+    }
+
     public void OnButtonClicked()
     {
         state = !state;
@@ -15,6 +20,6 @@ public class UI_MuteButton : MonoBehaviour
         OnIcon.gameObject.SetActive(state);
         OffIcon.gameObject.SetActive(!state);
 
-        AudioListener.volume = state ? 1f : 0f;
+        AudioListener.volume = state ? 0.7f : 0f;
     }
 }
