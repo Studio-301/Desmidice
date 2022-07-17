@@ -13,33 +13,37 @@ public class LaserVisual : MonoBehaviour
 
     void Awake()
     {
-        if (vfxSupported)
+#if UNITY_WEBGL
+        cheap.gameObject.SetActive(true);
+#else
             vfx.gameObject.SetActive(true);
-        else
-            cheap.gameObject.SetActive(true);
+#endif
     }
 
     public void SetState(bool state)
     {
-        if (vfxSupported)
+#if UNITY_WEBGL
+        cheap.SetState(state);
+#else
             vfx.SetState(state);
-        else
-            cheap.SetState(state);
+#endif
     }
 
     public void SetPoints(Vector3 start, Vector3 end, bool endSparks, bool startCap, bool endCap, int strength)
     {
-        if (vfxSupported)
+#if UNITY_WEBGL
+        cheap.SetPoints(start, end, endSparks, startCap, endCap, strength);
+#else
             vfx.SetPoints(start, end, endSparks, startCap, endCap, strength);
-        else
-            cheap.SetPoints(start, end, endSparks, startCap, endCap, strength);
+#endif
     }
 
     public void SetColor(Color color)
     {
-        if (vfxSupported)
+#if UNITY_WEBGL
+        cheap.SetColor(color);
+#else
             vfx.SetColor(color);
-        else
-            cheap.SetColor(color);
+#endif
     }
 }

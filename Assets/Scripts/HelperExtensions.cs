@@ -21,4 +21,14 @@ public static class HelperExtensions
     {
         return new Vector3(vector.x, 0, vector.z);
     }
+    
+    public static Vector3 Modulo(this Vector3 vector, float modulo)
+    {
+        return new Vector3(vector.x % modulo, vector.y % modulo, vector.z % modulo);
+    }
+    
+    public static Vector3 SetZ(this Vector3 vector, float z)
+    {
+        return new Vector3(vector.x, vector.y, z);
+    }
 }
