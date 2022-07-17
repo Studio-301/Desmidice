@@ -89,6 +89,9 @@ MonoBehaviour:
     - key: UIClick
       value:
       - {fileID: 8300000, guid: b7cc54cbfef3fc74e9c888dfd89ec277, type: 3}
+    - key: Bell
+      value:
+      - {fileID: 8300000, guid: 9b8aa5ad844f5d84f82a2518bf627ba4, type: 3}
     error: 0
   Source: {fileID: 3827111765469584257}
 --- !u!82 &3827111765469584257
