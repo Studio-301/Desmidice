@@ -28,6 +28,8 @@ public class NextLevel : MonoBehaviour
             return;
 
         opening = true;
-        FindObjectOfType<MapManager>()?.Next();
+
+        FindObjectOfType<UIManager>().ShowNextLevel();
+        FindObjectOfType<DiceManipulator>().enabled = false;
     }
 }

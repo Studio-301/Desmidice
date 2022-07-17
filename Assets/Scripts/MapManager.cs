@@ -29,6 +29,8 @@ public class MapManager : MonoBehaviour
             var operation = SceneManager.LoadSceneAsync(info.ID, LoadSceneMode.Additive);
             currentScene = SceneManager.GetSceneByName(info.ID);
 
+            FindObjectOfType<DiceManipulator>().enabled = true;
+
             operation.completed += (a) => OnMapSelected?.Invoke();
         });
     }
