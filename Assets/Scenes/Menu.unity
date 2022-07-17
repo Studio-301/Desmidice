@@ -347,7 +347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 966490743370978249, guid: 1bc287cf6fd0b48438c35fcfd2e964be, type: 3}
       propertyPath: m_text
-      value: "Kry\u0161tof Rozto\u010Dil"
+      value: Kitts
       objectReference: {fileID: 0}
     - target: {fileID: 966490743370978249, guid: 1bc287cf6fd0b48438c35fcfd2e964be, type: 3}
       propertyPath: m_fontSize
