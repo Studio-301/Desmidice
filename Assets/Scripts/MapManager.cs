@@ -25,18 +25,25 @@ public class MapManager : MonoBehaviour
     float levelStart;
     public void OpenLevel(LevelInfo info)
     {
-        currentInfo = info;
-        CloseLevel(() =>
+        uiManager.ShowBlocker(() =>
         {
-            levelStart = Time.time;
-            Debug.Log($"opening: {info.Name} => {info.ID}");
+            currentInfo = info;
+            CloseLevel(() =>
+            {
+                levelStart = Time.time;
+                Debug.Log($"opening: {info.Name} => {info.ID}");
 
-            var operation = SceneManager.LoadSceneAsync(info.ID, LoadSceneMode.Additive);
-            currentScene = SceneManager.GetSceneByName(info.ID);
+                var operation = SceneManager.LoadSceneAsync(info.ID, LoadSceneMode.Additive);
+                currentScene = SceneManager.GetSceneByName(info.ID);
 
-            FindObjectOfType<DiceManipulator>().enabled = true;
+                FindObjectOfType<DiceManipulator>().enabled = true;
 
-            operation.completed += (a) => OnMapSelected?.Invoke();
+                operation.completed += (a) =>
+                {
+                    OnMapSelected?.Invoke();
+                    uiManager.HideBlocker();
+                };
+            });
         });
     }
     void CloseLevel(Action onUnload = null)

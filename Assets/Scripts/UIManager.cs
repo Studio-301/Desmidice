@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] MapManager mapManager;
     [SerializeField] TMP_Text levelTimer;
+
+    [SerializeField] CanvasGroup blocker;
 
     public void ShowGame()
     {
@@ -54,5 +58,15 @@ public class UIManager : MonoBehaviour
     {
         foreach (var x in menuElements)
             x.Hide();
+    }
+
+    public void ShowBlocker(Action callback)
+    {
+        blocker.DOFade(1f, 0.2f).OnComplete(() => callback?.Invoke());
+    }
+
+    public void HideBlocker()
+    {
+        blocker.DOFade(0f, 0.3f).SetDelay(0.5f);
     }
 }
