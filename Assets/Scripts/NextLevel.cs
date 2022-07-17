@@ -22,6 +22,7 @@ public class NextLevel : MonoBehaviour
     }
 
     bool opening;
+    [ContextMenu("Compleate")]
     public void OpenNextLevel()
     {
         if (opening)

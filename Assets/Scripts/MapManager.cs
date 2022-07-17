@@ -11,7 +11,7 @@ public class MapManager : MonoBehaviour
     public UnityEvent OnMapSelected;
     [SerializeField] UIManager uiManager;
 
-    [System.Serializable]
+    [Serializable]
     public class LevelInfo
     {
         public string Name;
@@ -19,11 +19,16 @@ public class MapManager : MonoBehaviour
     }
 
     public LevelInfo[] Levels;
-    Scene currentScene;
+    public Scene currentScene;
+    public LevelInfo currentInfo;
+
+    float levelStart;
     public void OpenLevel(LevelInfo info)
     {
+        currentInfo = info;
         CloseLevel(() =>
         {
+            levelStart = Time.time;
             Debug.Log($"opening: {info.Name} => {info.ID}");
 
             var operation = SceneManager.LoadSceneAsync(info.ID, LoadSceneMode.Additive);
@@ -44,6 +49,8 @@ public class MapManager : MonoBehaviour
         else
             onUnload?.Invoke();
     }
+
+    public float GetLevelDuration() => Time.time - levelStart;
 
     public void Begin()
     {
