@@ -23,7 +23,7 @@ public class ReceiverVisual : MonoBehaviour
             var materials = meshRenderer.materials;
             for (int i = 0; i < materials.Length; i++)
             {
-                if (materials[i].name == "Props Emission")
+                if (materials[i].name.Contains("Props Emission"))
                 {
                     materials[i] = materialInstance;
                 }
@@ -39,7 +39,7 @@ public class ReceiverVisual : MonoBehaviour
 
     public void SetColor(Color color)
     {
-        materialInstance.SetColor("_EMISSION", color);
+        materialInstance.SetColor("_EmissionColor", color);
     }
 
     public void SetSpeed(float speed)
