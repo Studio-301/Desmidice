@@ -30,9 +30,16 @@ public class LaserReciever_Activator : LaserReciever
     void Awake()
     {
         ui.Initialize(Camera.main, ui.transform.position);
-        ui.Value.text = $"{Condition}";
-        Activate.AddListener(() => ui.SetState(false));
-        Deactivate.AddListener(() => ui.SetState(true));
+        ui.SetState(true);
+
+        Activate.AddListener(() =>
+        {
+            ui.Value.text = $"DONE";
+        });
+        Deactivate.AddListener(() =>
+        {
+            ui.Value.text = $"{Condition}";
+        });
 
         Deactivate?.Invoke();
     }
