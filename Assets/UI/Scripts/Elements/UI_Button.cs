@@ -3,7 +3,7 @@ using TMPro;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 
-public class UI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class UI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     public RectTransform Underline;
     public TMP_Text Text;
@@ -24,5 +24,10 @@ public class UI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerExit(PointerEventData eventData)
     {
         Underline.DOScaleX(0f, AnimationLength).SetEase(LineEase);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        SoundBank.Instance.PlayClip("UIClick");
     }
 }

@@ -51,6 +51,8 @@ public class Manipulatable : MonoBehaviour
                  .onComplete += () => diceSides.ForEach(x => x.IsReflective = true);
 
         LaserColliderRoot.localRotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
+
+        SoundBank.Instance.PlayClip("Rotate", transform.position);
     }
 
     public void SnapTo(Vector3 destination)
@@ -77,11 +79,15 @@ public class Manipulatable : MonoBehaviour
     {
         Collider.enabled = false;
         transform.DOMoveY(SkyY, GrabLength).SetEase(GrabEase);
+
+        SoundBank.Instance.PlayClip("Grab", transform.position);
     }
 
     public void Release()
     {
         Collider.enabled = true;
         transform.DOMoveY(GroundY, GrabLength).SetEase(ReleaseEase);
+
+        SoundBank.Instance.PlayClip("Drop", transform.position);
     }
 }
