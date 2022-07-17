@@ -5,6 +5,8 @@ using UnityEngine;
 public delegate void AddNode(Vector3 pos, int strength, LaserReciever reciever);
 public class LaserBeam
 {
+    public Color MainColor;
+
     /// <summary>
     /// Is laser ending in a reciever with valid condition
     /// </summary>

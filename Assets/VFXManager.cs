@@ -10,7 +10,7 @@ using UnityEngine.VFX;
 [DefaultExecutionOrder(-1)]
 public class VFXManager : MonoBehaviour
 {
-    [SerializeField] LaserEmitter[] lasers;
+    LaserEmitter[] lasers;
 
     [SerializeField] LaserVisual beamEffect;
 
@@ -24,12 +24,19 @@ public class VFXManager : MonoBehaviour
 
     void Awake()
     {
+        lasers = FindObjectsOfType<LaserEmitter>();
+
         vfxPool.SetFactory(() => Instantiate(beamEffect, transform));
         vfxPool.OnUse = (x) => x.SetState(true);
         vfxPool.OnFree = (x) => x.SetState(false);
         vfxPool.CreateElements(LaserEmitter.MaxSegments * 5);
 
-        InvokeRepeating("DisplayLasers", 0, laserDisplayRate);
+        //InvokeRepeating("DisplayLasers", 0, laserDisplayRate);
+    }
+
+    private void Update()
+    {
+        DisplayLasers();
     }
 
     void DisplayLasers()
@@ -62,7 +69,7 @@ public class VFXManager : MonoBehaviour
         var points = beam.Nodes;
         for (int i = 0; i < points.Count - 1; i++)
         {
-            var isEnd = i + 1 >= points.Count;
+            var isEnd = i + 2 >= points.Count;
             var a = points[i + 0];
             var b = points[i + 1];
 
@@ -70,7 +77,8 @@ public class VFXManager : MonoBehaviour
 
             var vfx = getElement();
 
-            vfx.SetPoints(a.Point, b.Point, isEnd);
+            vfx.SetPoints(a.Point, b.Point, isEnd, a.Strength);
+            vfx.SetColor(beam.MainColor);
         }
     }
 }

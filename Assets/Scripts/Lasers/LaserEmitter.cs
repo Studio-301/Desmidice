@@ -9,6 +9,7 @@ public class LaserEmitter : MonoBehaviour
 
     public LaserBeam LaserBeam { get; private set; } = new();
     [SerializeField] int BaseBeamStreangth;
+    [SerializeField] Color beamColor = Color.cyan;
 
     [SerializeField] LayerMask mask;
     [EditorButton("ClearPreview", "Hide laser")]
@@ -21,6 +22,7 @@ public class LaserEmitter : MonoBehaviour
 
     void Awake()
     {
+        LaserBeam.MainColor = beamColor;
         LaserBeam.Reset();
     }
 
