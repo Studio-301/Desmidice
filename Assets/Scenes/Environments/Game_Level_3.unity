@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5445269962244448858, guid: 4911255a5ca58dc40b4fed91ea34df8d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5445269962244448858, guid: 4911255a5ca58dc40b4fed91ea34df8d, type: 3}
       propertyPath: m_LocalScale.x
@@ -367,6 +367,18 @@ PrefabInstance:
     - target: {fileID: 6675879879920859218, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: m_Name
       value: Laser Emitter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.b
+      value: 0.047468662
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: BaseBeamStreangth
@@ -1438,9 +1450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03388b8132014294fad8b3e1fd9440a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lasers:
-  - {fileID: 2002120505}
-  - {fileID: 1651916390}
   beamEffect: {fileID: 8265805761834235571, guid: ae622ce3c921337459c6c92e17c38691, type: 3}
   laserDisplayRate: 0.1
 --- !u!1 &436337391
@@ -1752,9 +1761,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2002120501}
   - {fileID: 204833513}
   - {fileID: 17655522}
+  - {fileID: 2002120501}
   - {fileID: 127201611}
   m_Father: {fileID: 241826907}
   m_RootOrder: 0
@@ -3617,7 +3626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5445269962244448858, guid: 4911255a5ca58dc40b4fed91ea34df8d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5445269962244448858, guid: 4911255a5ca58dc40b4fed91ea34df8d, type: 3}
       propertyPath: m_LocalScale.x
@@ -4442,7 +4451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6675879879920859246, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6675879879920859246, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5518,17 +5527,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 65000012203143268, guid: bca1652b05189574fafe7f9ae1e7b8e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bca1652b05189574fafe7f9ae1e7b8e0, type: 3}
---- !u!114 &1651916390 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
-  m_PrefabInstance: {fileID: 127201610}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38063edeba057c74caaf5fcedd655278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1658110045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6802,17 +6800,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6675879879920859246, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
   m_PrefabInstance: {fileID: 1319997989}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2002120505 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
-  m_PrefabInstance: {fileID: 1319997989}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38063edeba057c74caaf5fcedd655278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2011961409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012839626062, guid: 26007c3f3193f7a45ac66691b461b842, type: 3}
