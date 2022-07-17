@@ -5,6 +5,7 @@ using System.Linq;
 using Tools.UnityUtilities;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 
 [DefaultExecutionOrder(-1)]
@@ -29,7 +30,6 @@ public class VFXManager : MonoBehaviour
     };
 
     [SerializeField] float laserDisplayRate;
-
     void Awake()
     {
         elementPool.SetFactory(() => new BeamElement()
@@ -59,6 +59,9 @@ public class VFXManager : MonoBehaviour
 
         if (laserDisplayRate != 0)
             InvokeRepeating("DisplayLasers", 0, laserDisplayRate);
+
+        if (!SceneManager.GetActiveScene().name.Contains("Menu"))
+            FindLasers();
     }
 
     [ContextMenu("Find Lasers")]
