@@ -7,6 +7,14 @@ public class NextLevel : MonoBehaviour
 {
     [SerializeField] LaserReciever_Activator[] activators;
 
+    private void Awake()
+    {
+        foreach (var x in activators)
+        {
+            x.Activate.AddListener(OnActivatorChanged);
+            x.Deactivate.AddListener(OnActivatorChanged);
+        }
+    }
     public void OnActivatorChanged()
     {
         if (activators.All(x => x.IsCompleate))
