@@ -4,9 +4,11 @@ using System.Collections.Generic;
 
 public class Manipulatable : MonoBehaviour
 {
+    [Header("References")]
     public Collider Collider;
     public Transform LaserColliderRoot;
     public Transform ModelRoot;
+    public GameObject Shadow;
 
     [SerializeField] List<LaserReciever_Dice> diceSides;
 
@@ -32,6 +34,8 @@ public class Manipulatable : MonoBehaviour
 
     void Start()
     {
+        Shadow.SetActive(false);
+
         currentRotation = ModelRoot.localEulerAngles.y;
 
         transform.position = new Vector3(transform.position.x, GroundY, transform.position.z);
@@ -75,8 +79,15 @@ public class Manipulatable : MonoBehaviour
         transform.position = destination;
     }
 
+    public void MoveShadowTo(Vector3 destination)
+    {
+        Shadow.transform.position = destination;
+    }
+
     public void Grab()
     {
+        Shadow.SetActive(true);
+
         Collider.enabled = false;
         transform.DOMoveY(SkyY, GrabLength).SetEase(GrabEase);
 
@@ -85,6 +96,8 @@ public class Manipulatable : MonoBehaviour
 
     public void Release()
     {
+        Shadow.SetActive(false);
+
         Collider.enabled = true;
         transform.DOMoveY(GroundY, GrabLength).SetEase(ReleaseEase);
 
