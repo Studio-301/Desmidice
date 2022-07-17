@@ -16,7 +16,7 @@ public class VFXManager : MonoBehaviour
         public UI_BeamValueV2 UI;
     }
 
-    LaserEmitter[] lasers;
+    LaserEmitter[] lasers = new LaserEmitter[0];
 
     [SerializeField] LaserVisual beamEffect;
     [SerializeField] UI_BeamValueV2 beamUI;
@@ -32,8 +32,6 @@ public class VFXManager : MonoBehaviour
 
     void Awake()
     {
-        lasers = FindObjectsOfType<LaserEmitter>();
-
         elementPool.SetFactory(() => new BeamElement()
         {
             VFX = Instantiate(beamEffect, transform),
@@ -60,6 +58,12 @@ public class VFXManager : MonoBehaviour
 
         if (laserDisplayRate != 0)
             InvokeRepeating("DisplayLasers", 0, laserDisplayRate);
+    }
+
+    public void FindLasers()
+    {
+        lasers = FindObjectsOfType<LaserEmitter>();
+        Debug.Log($"FIND LASERS: {lasers.Length}");
     }
 
     private void Update()
@@ -116,7 +120,7 @@ public class VFXManager : MonoBehaviour
         var points = beam.Nodes;
         for (int i = 0; i < points.Count - 1; i++)
         {
-            var isEnd = i + 2 >= points.Count;
+            var isLast = i + 2 >= points.Count;
             var a = points[i + 0];
             var b = points[i + 1];
 
@@ -125,8 +129,19 @@ public class VFXManager : MonoBehaviour
             var elem = beam.CurrentElements[i];
             var vfx = elem.VFX;
 
+            bool startCap = true;
+            bool endCap = true;
+
+            if (a.Reciever != null)
+                startCap = a.Reciever.Settings.HideStartCap;
+            if (b.Reciever != null)
+                endCap = b.Reciever.Settings.HideEndCap;
+
+            if (i == 0)
+                startCap = true;
+
             //vfx.transform.position = middle;
-            vfx.SetPoints(a.Point, b.Point, isEnd, i == 0, a.Strength);
+            vfx.SetPoints(a.Point, b.Point, isLast, startCap, endCap, a.Strength);
             vfx.SetColor(beam.MainColor);
 
             var ui = elem.UI;

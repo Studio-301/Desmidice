@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class LaserReciever_Gate : LaserReciever
 {
+    public override LaserReciever_Settings Settings => new()
+    {
+        HideEndCap = false,
+        HideStartCap = false
+    };
+
     [Title("Gate")]
     [SerializeField] bool xFlip = true;
     [SerializeField] Transform entrance;

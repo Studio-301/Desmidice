@@ -19,6 +19,12 @@ public class LaserReciever_Activator : LaserReciever
 
     bool updateDecay;
 
+    public override LaserReciever_Settings Settings => new()
+    {
+        HideStartCap = false,
+        HideEndCap = true
+    };
+
     void Awake()
     {
         Deactivate?.Invoke();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [DefaultExecutionOrder(-5)]
@@ -12,6 +13,10 @@ public class Singleton : MonoBehaviour
         if (instance == null)
             instance = this;
         else
-            Destroy(this);
+            Destroy(gameObject);
+
+        var systems = FindObjectsOfType<UnityEngine.EventSystems.EventSystem>();
+        foreach (var x in systems.Skip(1).ToArray())
+            Destroy(x.gameObject);
     }
 }
