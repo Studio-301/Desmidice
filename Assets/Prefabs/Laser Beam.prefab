@@ -76,9 +76,9 @@ VisualEffect:
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: A
         m_Overridden: 0
-      - m_Value: {x: 0, y: 0, z: 0}
+      - m_Value: {x: 146.31, y: 0, z: 0}
         m_Name: B
-        m_Overridden: 0
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -98,9 +98,12 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array:
-      - m_Value: 0
+      - m_Value: 1
         m_Name: End Sparks
-        m_Overridden: 0
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Is Start
+        m_Overridden: 1
 --- !u!114 &8265805761834235571
 MonoBehaviour:
   m_ObjectHideFlags: 0

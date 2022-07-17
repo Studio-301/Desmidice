@@ -217,6 +217,78 @@ PrefabInstance:
       objectReference: {fileID: 6468822729571218764}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e87b015feb85324db54cc33818b30cf, type: 3}
+--- !u!1 &6002110458193147164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1526348173037657354, guid: 0e87b015feb85324db54cc33818b30cf, type: 3}
+  m_PrefabInstance: {fileID: 5072577356170504214}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1447357625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6002110458193147164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed30ae47c860974ca52e4cf3b21add5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnMapSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI_Page, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UI_Page, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6002110458193147361}
+        m_TargetAssemblyTypeName: VFXManager, Assembly-CSharp
+        m_MethodName: FindLasers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Levels:
+  - Name: Level 3
+    ID: Game_Level_3
+  - Name: DEV test
+    ID: Game_Level_PLAYGROUND
+--- !u!114 &6002110458193147361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1526348173037657591, guid: 0e87b015feb85324db54cc33818b30cf, type: 3}
+  m_PrefabInstance: {fileID: 5072577356170504214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6002110458193147164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03388b8132014294fad8b3e1fd9440a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6002110458193147362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1526348173037657588, guid: 0e87b015feb85324db54cc33818b30cf, type: 3}

@@ -16,7 +16,7 @@ public class VFXManager : MonoBehaviour
         public UI_2DElement UI;
     }
 
-    LaserEmitter[] lasers;
+    LaserEmitter[] lasers = new LaserEmitter[0];
 
     [SerializeField] LaserVisual beamEffect;
     [SerializeField] UI_2DElement beamUI;
@@ -32,8 +32,6 @@ public class VFXManager : MonoBehaviour
 
     void Awake()
     {
-        lasers = FindObjectsOfType<LaserEmitter>();
-
         elementPool.SetFactory(() => new BeamElement()
         {
             VFX = Instantiate(beamEffect, transform),
@@ -60,6 +58,12 @@ public class VFXManager : MonoBehaviour
 
         if (laserDisplayRate != 0)
             InvokeRepeating("DisplayLasers", 0, laserDisplayRate);
+    }
+
+    public void FindLasers()
+    {
+        lasers = FindObjectsOfType<LaserEmitter>();
+        Debug.Log($"FIND LASERS: {lasers.Length}");
     }
 
     private void Update()

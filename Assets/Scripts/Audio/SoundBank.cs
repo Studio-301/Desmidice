@@ -11,14 +11,19 @@ public class SoundBank : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+            Instance = this;
     }
 
     public void PlayClip(string id)
     {
-        var variants = Clips[id];
-        var sfx = variants[Random.Range(0, variants.Count)];
-        Source.PlayOneShot(sfx);
+        if (Clips.TryGetValue(id, out var variants))
+        {
+            var sfx = variants[Random.Range(0, variants.Count)];
+            Source.PlayOneShot(sfx);
+        }
+        else
+            Debug.LogError($"Unknown ID: {id}");
     }
 
     public void PlayClip(string id, Vector3 position)

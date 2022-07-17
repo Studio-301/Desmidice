@@ -37,15 +37,19 @@ public class CameraController : MonoBehaviour
         camBasePos = cam.localPosition;
     }
 
-    void Update()
+    public void RotateLeft() 
     {
-        //ROTATE
         if (Input.GetKeyDown(KeyCode.RightArrow))
             Rotate(-90);
-
+    }
+    public void RotateRight()
+    {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
             Rotate(+90);
+    }
 
+    void Update()
+    {
         //ZOOM
         targetZoom += Input.mouseScrollDelta.y * zoomSensitivity;
         targetZoom = Mathf.Clamp(targetZoom, zoomLimits.x, zoomLimits.y);
