@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReflective: 1
   Number: 1
 --- !u!1 &1134892880535955372
 GameObject:
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReflective: 1
   Number: 5
 --- !u!1 &1419736618596088850
 GameObject:
@@ -176,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReflective: 1
   Number: 4
 --- !u!1 &1419736618934984647
 GameObject:
@@ -253,6 +256,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 6117940257970170864}
+  LaserColliderRoot: {fileID: 3494751248129910635}
+  ModelRoot: {fileID: 6504778759471519955}
+  diceSides:
+  - {fileID: 3227064098359392865}
+  - {fileID: 579179409814800993}
+  - {fileID: 5721835091867281789}
+  - {fileID: 6354092723364576996}
+  - {fileID: 3293391883503418909}
+  - {fileID: 6698258907706401705}
   EnableRotation: 1
   RotationIncrement: 90
   RotationLength: 0.3
@@ -336,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReflective: 1
   Number: 2
 --- !u!1 &3653323450681398322
 GameObject:
@@ -395,6 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReflective: 1
   Number: 6
 --- !u!1 &5840690970282033769
 GameObject:
@@ -492,7 +506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef17fc19ce44ee45aa2716451df377b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceMaterial: {fileID: 2100000, guid: df95499f5bdeae141b2587f94824fbe0, type: 2}
   meshRenderer: {fileID: 5336397281242489788}
 --- !u!1 &8889095866738133171
 GameObject:
@@ -552,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195846de0c3e14c4b83910c16e8debe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsReflective: 1
   Number: 3
 --- !u!1 &9154814791369814740
 GameObject:

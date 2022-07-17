@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LaserReciever_Mirror : LaserReciever
 {
+    public bool IsReflective = true;
     public override void Interact(LaserBeam beam, ref Ray ray, RaycastHit info, bool isPreview, out bool continueBeam, AddNode addNode)
     {
-        continueBeam = true;
+        continueBeam = IsReflective;
         
         ray.origin = info.point;
         ray.direction = Vector3.Reflect(ray.direction, info.normal);

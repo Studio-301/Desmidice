@@ -1,9 +1,14 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class Manipulatable : MonoBehaviour
 {
     public Collider Collider;
+    public Transform LaserColliderRoot;
+    public Transform ModelRoot;
+
+    [SerializeField] List<LaserReciever_Dice> diceSides;
 
     [Header("Rotation")]
     public bool EnableRotation = true;
@@ -27,7 +32,7 @@ public class Manipulatable : MonoBehaviour
 
     void Start()
     {
-        currentRotation = transform.localEulerAngles.y;
+        currentRotation = ModelRoot.localEulerAngles.y;
 
         transform.position = new Vector3(transform.position.x, GroundY, transform.position.z);
     }
@@ -40,8 +45,12 @@ public class Manipulatable : MonoBehaviour
         currentRotation += RotationIncrement;
         currentRotation = Mathf.Repeat(currentRotation, 360f);
 
-        transform.DOLocalRotate(new Vector3(0, currentRotation, 0), RotationLength)
-                 .SetEase(RotationEase);
+        diceSides.ForEach(x => x.IsReflective = false);
+        ModelRoot.DOLocalRotate(new Vector3(0, currentRotation, 0), RotationLength)
+                 .SetEase(RotationEase)
+                 .onComplete += () => diceSides.ForEach(x => x.IsReflective = true);
+
+        LaserColliderRoot.localRotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
     }
 
     public void SnapTo(Vector3 destination)

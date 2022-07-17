@@ -22,6 +22,8 @@ public class LaserBeam
     /// </summary>
     public List<Node> Nodes = new List<Node>(80);
 
+    public List<LaserVisual> LastVFXs = new(); //<=== MATCH VFX through out differenet ticks
+
     public void Reset()
     {
         TotalStrength = 0;
