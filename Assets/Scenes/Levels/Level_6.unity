@@ -2460,6 +2460,18 @@ PrefabInstance:
       value: Laser Emitter
       objectReference: {fileID: 0}
     - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.b
+      value: 0.012949424
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.g
+      value: 0.5127304
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.r
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: BaseBeamStreangth
       value: 5
       objectReference: {fileID: 0}

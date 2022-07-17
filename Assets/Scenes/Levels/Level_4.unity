@@ -1222,6 +1222,14 @@ PrefabInstance:
       value: Laser Emitter (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.r
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: BaseBeamStreangth
       value: 4
       objectReference: {fileID: 0}
@@ -1550,8 +1558,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7017262230903259239, guid: 36a69491feaf80944a038cd47c1430f6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017262230903259239, guid: 36a69491feaf80944a038cd47c1430f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -5.1
       objectReference: {fileID: 0}
     - target: {fileID: 7017262230903259239, guid: 36a69491feaf80944a038cd47c1430f6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1559,7 +1571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7017262230903259239, guid: 36a69491feaf80944a038cd47c1430f6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13
+      value: -13.1
       objectReference: {fileID: 0}
     - target: {fileID: 7017262230903259239, guid: 36a69491feaf80944a038cd47c1430f6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2133,6 +2145,14 @@ PrefabInstance:
     - target: {fileID: 6675879879920859218, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: m_Name
       value: Laser Emitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.r
+      value: 0.5921569
       objectReference: {fileID: 0}
     - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: BaseBeamStreangth
@@ -2776,6 +2796,10 @@ PrefabInstance:
     - target: {fileID: 6675879879920859218, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: m_Name
       value: Laser Emitter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
+      propertyPath: beamColor.b
+      value: 0.16470589
       objectReference: {fileID: 0}
     - target: {fileID: 6675879879920859245, guid: 71d19d2c36e2f544abc345d7a3f792eb, type: 3}
       propertyPath: BaseBeamStreangth
@@ -3604,7 +3628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
       propertyPath: data.A
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
       propertyPath: data.B
@@ -3620,7 +3644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
       propertyPath: data.E
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2607846352898478957, guid: ab8c6ee2cc529974e922356e9c83c35d, type: 3}
       propertyPath: data.F
