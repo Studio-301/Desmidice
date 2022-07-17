@@ -169,6 +169,5 @@ public class DiceManipulator : MonoBehaviour
         }
 
         return false;
-        return x.Length != 0;
     }
 }

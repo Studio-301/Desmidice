@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
+using System;
 
 public class Manipulatable : MonoBehaviour
 {
@@ -30,6 +31,11 @@ public class Manipulatable : MonoBehaviour
     public Ease GrabEase = Ease.OutBack;
     public Ease ReleaseEase = Ease.OutBounce;
 
+    [Header("Callbacks")]
+    public Action OnGrab;
+    public Action OnRelease;
+    public Action OnRotate;
+
     float currentRotation = 0f;
 
     void Start()
@@ -57,6 +63,8 @@ public class Manipulatable : MonoBehaviour
         LaserColliderRoot.localRotation = Quaternion.AngleAxis(currentRotation, Vector3.up);
 
         SoundBank.Instance.PlayClip("Rotate", transform.position);
+
+        OnRotate?.Invoke();
     }
 
     public void SnapTo(Vector3 destination)
@@ -91,6 +99,8 @@ public class Manipulatable : MonoBehaviour
         Collider.enabled = false;
         transform.DOMoveY(SkyY, GrabLength).SetEase(GrabEase);
 
+        OnGrab?.Invoke();
+
         SoundBank.Instance.PlayClip("Grab", transform.position);
     }
 
@@ -100,6 +110,8 @@ public class Manipulatable : MonoBehaviour
 
         Collider.enabled = true;
         transform.DOMoveY(GroundY, GrabLength).SetEase(ReleaseEase);
+
+        OnRelease?.Invoke();
 
         SoundBank.Instance.PlayClip("Drop", transform.position);
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.872051, g: 0.8616835, b: 0.85711825, a: 1}
+  m_IndirectSpecularColor: {r: 0.87209177, g: 0.86169684, b: 0.85730463, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5222,6 +5222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26007c3f3193f7a45ac66691b461b842, type: 3}
+--- !u!4 &1582473336 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6002110458193147362, guid: df7db108455f8404c8732d83386755e4, type: 3}
+  m_PrefabInstance: {fileID: 6002110458482408547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1591151078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012839626062, guid: 26007c3f3193f7a45ac66691b461b842, type: 3}
@@ -7459,11 +7464,15 @@ PrefabInstance:
     - target: {fileID: 6002110458193147361, guid: df7db108455f8404c8732d83386755e4, type: 3}
       propertyPath: beamUI
       value: 
-      objectReference: {fileID: 3479261478177524905, guid: e6fbea96cb6041849b8331b5fee25676, type: 3}
+      objectReference: {fileID: 654040944338013467, guid: a6c558f82aea72643b7d9b1360f6cb99, type: 3}
     - target: {fileID: 6002110458193147361, guid: df7db108455f8404c8732d83386755e4, type: 3}
       propertyPath: uiRoot
       value: 
-      objectReference: {fileID: 1451817888}
+      objectReference: {fileID: 1582473336}
+    - target: {fileID: 6468822729571218764, guid: df7db108455f8404c8732d83386755e4, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7539399548375154894, guid: df7db108455f8404c8732d83386755e4, type: 3}
       propertyPath: m_RootOrder
       value: 2

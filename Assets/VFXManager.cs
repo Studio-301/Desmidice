@@ -13,13 +13,13 @@ public class VFXManager : MonoBehaviour
     public class BeamElement
     {
         public LaserVisual VFX;
-        public UI_2DElement UI;
+        public UI_BeamValueV2 UI;
     }
 
     LaserEmitter[] lasers;
 
     [SerializeField] LaserVisual beamEffect;
-    [SerializeField] UI_2DElement beamUI;
+    [SerializeField] UI_BeamValueV2 beamUI;
     [SerializeField] Transform uiRoot;
 
     Pool<BeamElement> elementPool = new()

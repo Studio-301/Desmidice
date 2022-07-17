@@ -10,7 +10,7 @@ public class Dice : MonoBehaviour
     [SerializeField] DiceVisual visuals;
 
     [Title("Settings")]
-    [SerializeField] DiceData data;
+    public DiceData data;
     [EditorButton("Reinitialize", activityType: ButtonActivityType.OnPlayMode)]
     [SerializeField] DiceColliders colliders;
 
