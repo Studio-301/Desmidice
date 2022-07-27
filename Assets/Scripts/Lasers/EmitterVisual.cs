@@ -23,11 +23,11 @@ public class EmitterVisual : MonoBehaviour
             var materials = meshRenderer.materials;
             for (int i = 0; i < materials.Length; i++)
             {
-                Debug.Log($"Checking Material: {materials[i].name}");
+                //Debug.Log($"Checking Material: {materials[i].name}");
                 
                 if (materials[i].name.Contains("Props Emission"))
                 {
-                    Debug.Log($"Found Material: {materials[i].name}");
+                    //Debug.Log($"Found Material: {materials[i].name}");
                     materials[i] = materialInstance;
                 }
             }

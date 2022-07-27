@@ -110,7 +110,7 @@ public class DiceManipulator : MonoBehaviour
 
         Vector3? shadowPoint = RaycastForGrid(true);
 
-        if (point != null)
+        if (point.HasValue && shadowPoint.HasValue)
         {
             Vector3 snappedPosition = Vector3Int.RoundToInt(shadowPoint.Value + grabOffset);
             snappedPosition.y = currentlyHeld.GroundY;

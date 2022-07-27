@@ -68,7 +68,7 @@ public class VFXManager : MonoBehaviour
     public void FindLasers()
     {
         lasers = FindObjectsOfType<LaserEmitter>();
-        Debug.Log($"FIND LASERS: {lasers.Length}");
+        //Debug.Log($"FIND LASERS: {lasers.Length}");
     }
 
     private void Update()

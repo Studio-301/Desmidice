@@ -38,10 +38,12 @@ public class MapManager : MonoBehaviour
 
                 FindObjectOfType<DiceManipulator>().enabled = true;
 
-                operation.completed += (a) =>
+                operation.completed += (scene) =>
                 {
                     OnMapSelected?.Invoke();
                     uiManager.HideBlocker();
+
+                    SceneManager.SetActiveScene(currentScene);
                 };
             });
         });

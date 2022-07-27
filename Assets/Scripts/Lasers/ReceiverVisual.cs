@@ -39,7 +39,7 @@ public class ReceiverVisual : MonoBehaviour
 
     public void SetColor(Color color)
     {
-        materialInstance.SetColor("_EmissionColor", color);
+        materialInstance?.SetColor("_EmissionColor", color);
     }
 
     public void SetSpeed(float speed)
