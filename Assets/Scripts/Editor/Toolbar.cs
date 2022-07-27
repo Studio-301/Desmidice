@@ -10,7 +10,7 @@ public static class Toolbar
 {
     static Toolbar()
     {
-        ToolbarExtender.RightToolbarGUI.Add(DrawRightGUI);
+        //ToolbarExtender.RightToolbarGUI.Add(DrawRightGUI);
     }
 
     static void DrawRightGUI()
